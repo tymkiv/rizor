@@ -3,7 +3,7 @@
   "version": "1.1.0",
   "description": "My start Template",
   "main": "index.js",
-  "author": "Salamatin Anatoliy",
+  "author": "Volodymyr Tymkiv",
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.8.4",
@@ -30,23 +30,16 @@
     "gulp-svg-sprite": "^1.5.0",
     "gulp-svgmin": "^2.2.0",
     "gulp-uglify": "^3.0.2",
-    "imagemin-jpeg-recompress": "^6.0.0"
-  },
-  "dependencies": {
-    "animate-scss": "^3.2.1",
-    "animate.css": "^4.1.0",
-    "focus-visible": "^5.1.0",
-    "gulp-group-css-media-queries": "^1.2.2",
-    "normalize.css": "^8.0.1",
-    "sticky-sidebar": "^3.3.1",
-    "svg4everybody": "^2.1.9",
-    "swiper": "^5.3.7",
-    "wow.js": "^1.2.2"
+    "imagemin-jpeg-recompress": "^6.0.0",
+    "gulp-group-css-media-queries": "^1.2.2"
   },
   "browserslist": [
     "last 3 version",
     "> 1%",
     "maintained node versions",
     "not dead"
-  ]
+  ],
+  "dependencies": {
+    "svg4everybody": "^2.1.9"
+  }
 }
