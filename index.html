@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title> Tymkiv </title>
+
+  <link rel="stylesheet" href="./build/css/main.css">
+  <link rel="stylesheet" href="./build/css/main-desktop.css">
+
+  <link rel="stylesheet" href="./build/css/pages/front-page.css">
+  <link rel="stylesheet" href="./build/css/pages/front-page-desktop.css">
+
+</head>
+
+<body>
+
+<!-- BEGIN MAIN-WRAPPER -->
+<div class="main-wrapper">
+
+<!-- BEGIN HEADER -->
+<header class="header">
+  <div class="header__container container">
+    
+    <!-- BEGIN LOGO -->
+    <div class="header__logo img-wrap img-wrap--contain">
+      <img src="./build/images/content/logo.png" alt="Логотип Rizor">
+    </div>
+    <!-- END LOGO -->
+
+    <!-- BEGIN BURGER -->
+    <button class="header__burger burger">
+      <span class="burger__sp burger__sp--1"></span>
+      <span class="burger__sp burger__sp--2"></span>
+      <span class="burger__sp burger__sp--3"></span>
+    </button>
+    <!-- END BURGER -->
+
+    <!-- BEGIN NAV -->
+    <nav class="header__nav navigation-menu">
+      <ul class="navigation-menu__list">
+        <li class="navigation-menu__item">
+          <a href="#" class="navigation-menu__link"> Преимущества </a>
+        </li>
+        <li class="navigation-menu__item">
+          <a href="#" class="navigation-menu__link"> Характеристики </a>
+        </li>
+        <li class="navigation-menu__item">
+          <a href="#" class="navigation-menu__link"> Для кого </a>
+        </li>
+      </ul>
+    </nav>
+    <!-- END NAV -->
+
+  </div>
+</header>
+<!-- END HEADER -->
+
+
+
+<!-- BEGIN MAIN -->
+<main class="main">
+
+  <div class="full-page-slider swiper-container">
+    <div class="full-page-slider__wrapper swiper-wrapper">
+        <section class="full-page-slider__section swiper-slide section">
+          <h2> Hello </h2>
+          <canvas id="canvas"></canvas>
+        </section>
+        <section class="full-page-slider__section swiper-slide section">
+          <h2> Hello </h2>
+        </section>
+        <section class="full-page-slider__section swiper-slide section">
+          <h2> Hello </h2>
+        </section>
+    </div>
+
+    <div class="full-page-slider__pagination swiper-pagination"></div>
+
+  </div>
+
+</main>
+<!-- END MAIN -->
+
+</div>
+<!-- END MAIN-WRAPPER -->
+
+<!-- BEGIN PLUGINS -->
+<script src="./libs/jquery-3.5.0.min.js"></script>
+<script src="./libs/gsap.min.js"></script>
+<script src="./libs/swiper.min.js"></script>
+<script src="./libs/underscore.js"></script>
+<script src="./libs/wheel-indicator.js"></script>
+<!-- END PLUGINS -->
+
+
+<!-- BEGIN POLIFILES -->
+<script src="./libs/focus-visible.min.js"></script>
+<script src="./libs/ofi.min.js"></script>
+<script src="./libs/svg4everybody.js"></script>
+<!-- END POLIFILES -->
+
+
+<!-- BEGIN GLOBAL -->
+<script src="./build/js/modules/_partials/global.js"></script>
+<script src="./build/js/modules/_partials/ClassScrollBlocker.js"></script>
+<script src="./build/js/modules/_partials/ClassFocusTrap.js"></script>
+<script src="./build/js/main.js"></script>
+<script src="./build/js/modules/header/header.js"></script>
+<!-- END GLOBAL -->
+
+
+<!-- BEGIN PAGE -->
+<script src="./build/js/pages/front-page.js"></script>
+<!-- END PAGE -->
+
+
+</body>
+</html>

@@ -1,0 +1,69 @@
+@-webkit-keyframes decor {
+  0% {
+    border-radius: 50%/50% 50%;
+  }
+
+  35% {
+    border-radius: 50%/50% 30%;
+  }
+
+  65% {
+    border-radius: 30% 50%;
+  }
+
+  100% {
+    border-radius: 50%/50% 50%;
+  }
+}
+
+@keyframes decor {
+  0% {
+    border-radius: 50%/50% 50%;
+  }
+
+  35% {
+    border-radius: 50%/50% 30%;
+  }
+
+  65% {
+    border-radius: 30% 50%;
+  }
+
+  100% {
+    border-radius: 50%/50% 50%;
+  }
+}
+
+@-webkit-keyframes decor_rotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes decor_rotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@media only screen and (min-width: 968px) {
+  .main {
+    height: 100vh;
+  }
+
+  .full-page-slider {
+    height: 100vh;
+  }
+}

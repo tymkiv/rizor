@@ -1,0 +1,63 @@
+@import '../../core';
+
+@include minw( 968px ) { 
+
+  /* -- BEGIN HEADER -- */
+  .header {
+
+    /* -- CONTAINER -- */
+    &__container {
+      box-shadow: none;
+    }
+
+    /* -- LOGO -- */
+    &__logo {
+      flex-basis: 16rem;
+      flex-grow: initial;
+    }
+
+    /* -- BURGER -- */
+    &__burger {
+      display: none;
+    }
+
+    /* -- NAV -- */
+    &__nav {
+      flex-grow: 1;
+      position: relative;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      transform: none;
+      border: none;
+      height: 100%;
+    }
+  }
+  /* -- END HEADER -- */
+
+  /* -- BEGIN NAVIGATION-MENU -- */
+  .navigation-menu {
+    z-index: 1;
+    &__list {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      min-height: 0;
+      padding: 0;
+      height: 100%;
+    }
+    &__item {
+      display: flex;
+      align-items: center;
+      &:not(:last-child) {
+        margin-bottom: 0;
+        margin-right: 5rem;
+      }
+    }
+    &__link {
+      font-size: 1.4rem;
+    }
+  }
+  /* -- END NAVIGATION-MENU -- */
+}

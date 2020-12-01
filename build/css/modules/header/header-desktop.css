@@ -1,0 +1,147 @@
+@-webkit-keyframes decor {
+  0% {
+    border-radius: 50%/50% 50%;
+  }
+
+  35% {
+    border-radius: 50%/50% 30%;
+  }
+
+  65% {
+    border-radius: 30% 50%;
+  }
+
+  100% {
+    border-radius: 50%/50% 50%;
+  }
+}
+
+@keyframes decor {
+  0% {
+    border-radius: 50%/50% 50%;
+  }
+
+  35% {
+    border-radius: 50%/50% 30%;
+  }
+
+  65% {
+    border-radius: 30% 50%;
+  }
+
+  100% {
+    border-radius: 50%/50% 50%;
+  }
+}
+
+@-webkit-keyframes decor_rotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes decor_rotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@media only screen and (min-width: 968px) {
+  /* -- BEGIN HEADER -- */
+
+  .header {
+    /* -- CONTAINER -- */
+    /* -- LOGO -- */
+    /* -- BURGER -- */
+    /* -- NAV -- */
+  }
+
+  .header__container {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+
+  .header__logo {
+    -ms-flex-preferred-size: 16rem;
+    flex-basis: 16rem;
+    -webkit-box-flex: initial;
+    -ms-flex-positive: initial;
+    flex-grow: initial;
+  }
+
+  .header__burger {
+    display: none;
+  }
+
+  .header__nav {
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    -webkit-transform: none;
+    -ms-transform: none;
+    transform: none;
+    border: none;
+    height: 100%;
+  }
+
+  /* -- END HEADER -- */
+
+  /* -- BEGIN NAVIGATION-MENU -- */
+
+  .navigation-menu {
+    z-index: 1;
+  }
+
+  .navigation-menu__list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    min-height: 0;
+    padding: 0;
+    height: 100%;
+  }
+
+  .navigation-menu__item {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+
+  .navigation-menu__item:not(:last-child) {
+    margin-bottom: 0;
+    margin-right: 5rem;
+  }
+
+  .navigation-menu__link {
+    font-size: 1.4rem;
+  }
+
+  /* -- END NAVIGATION-MENU -- */
+}

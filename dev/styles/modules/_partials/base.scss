@@ -1,0 +1,66 @@
+@import '../../core.scss';
+
+*, *:before, *:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  outline: none;
+
+  // Set global fonts here
+  font-family: 'Roboto', sans-serif;
+  // font-family: 'Rubik Mono One', sans-serif;
+}
+
+* {
+  position: relative;
+}
+
+html {
+  // MAIN REM VALUE
+  font-size: 10px;
+}
+
+// .no-object-fit .img-wrap {
+//   position: relative;
+//   img {
+//     position: relative;
+//     max-width: 100%;
+//     max-height: 100%;
+//     height: auto;
+//     width: auto;
+//     left: 50%;
+//     transform: translate(-50%, 0);
+//   }
+// }
+
+.img-wrap {
+  img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-position: center;
+  }
+  &.img-wrap--contain img {
+    object-fit: contain;
+    font-family: 'object-fit: contain; object-position: center;';
+  }
+  &.img-wrap--cover img {
+    object-fit: cover;
+    font-family: 'object-fit: cover; object-position: center;';
+  }
+}
+
+a:focus, button:focus {
+  outline-offset: 0.1rem;
+  outline: 0.2rem solid #2877AD;
+}
+
+.container {
+  max-width: 117rem;
+  padding: 0 2rem;
+  margin: 0 auto;
+}
+
+.main-wrapper {
+  overflow: hidden;
+}

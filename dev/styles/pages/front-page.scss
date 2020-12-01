@@ -1,0 +1,13 @@
+@import '../core.scss';
+
+.full-page-slider {
+
+  &__wrapper {
+    display: block;
+  }
+  /* -- SECTION -- */
+  &__section {
+    padding-top: 10rem;
+    min-height: 100vh;
+  }
+}

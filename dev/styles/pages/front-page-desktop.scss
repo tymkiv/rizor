@@ -1,0 +1,11 @@
+@import '../core.scss';
+
+@include minw( 968px ) {
+  .main {
+    height: 100vh;
+  }
+  .full-page-slider {
+    height: 100vh;
+
+  }
+}

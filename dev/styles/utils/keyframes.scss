@@ -1,0 +1,30 @@
+@keyframes decor {
+  0% {
+    border-radius: 50%/50% 50%;
+    // transform: rotate(0);
+  }
+
+  35% {
+    // border-radius: 60%/60%;
+    border-radius: 50%/50% 30%;
+    // transform: rotate(160deg);
+  }
+  65% {
+    border-radius: 30% 50%;
+    // transform: rotate(160deg);
+  }
+
+  100% {
+    border-radius: 50%/50% 50%;
+    // transform: rotate(10deg);
+  }
+}
+
+@keyframes decor_rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
