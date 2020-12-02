@@ -48,12 +48,6 @@ $(function () {
   }
 
 
-  let canvas = document.getElementById('canvas');
-  let ctx = canvas.getContext('2d');
-  ctx.font = "48px RubikMonoOne";
-  ctx.fillText("Hello world", 10, 50);
-
-
   window.addEventListener('resize', () => {
     fullPageSlider.onResizeHandler();
   })

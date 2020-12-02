@@ -4,9 +4,10 @@
 
   /* -- BEGIN HEADER -- */
   .header {
-
+    background: transparent;
     /* -- CONTAINER -- */
     &__container {
+      background: transparent;
       box-shadow: none;
     }
 
@@ -23,6 +24,7 @@
 
     /* -- NAV -- */
     &__nav {
+      background: transparent;
       flex-grow: 1;
       position: relative;
       top: 0;
