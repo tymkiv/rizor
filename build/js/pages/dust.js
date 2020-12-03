@@ -16,7 +16,9 @@ var ParticleText = /*#__PURE__*/function () {
       transparent: true
     });
     document.getElementById('wrapper-for-dust').appendChild(this.app.view);
-    this.particleSize = 2;
+    this.particleSize = 2; // this.rows = 274;
+    // this.cols = 1200;
+
     this.rows = 137;
     this.cols = 600; // this.rows = 68;
     // this.cols = 300;
@@ -72,8 +74,8 @@ var ParticleText = /*#__PURE__*/function () {
 
       PIXI.loader.add('dust', './build/images/content/2.png').load(function (loader, resources) {
         var canvas = document.createElement('canvas');
-        var ctx = canvas.getContext('2d');
-        document.body.appendChild(canvas);
+        var ctx = canvas.getContext('2d'); // document.body.appendChild(canvas);
+
         canvas.width = _this.cols * _this.particleSize;
         canvas.height = _this.rows * _this.particleSize;
         ctx.drawImage(resources.dust.data, 0, 0);

@@ -13,6 +13,8 @@ class ParticleText {
     document.getElementById('wrapper-for-dust').appendChild(this.app.view);
 
     this.particleSize = 2;
+    // this.rows = 274;
+    // this.cols = 1200;
     this.rows = 137;
     this.cols = 600;
     // this.rows = 68;
@@ -70,7 +72,7 @@ class ParticleText {
 
       const canvas = document.createElement('canvas');
       const ctx = canvas.getContext('2d');
-      document.body.appendChild(canvas);
+      // document.body.appendChild(canvas);
       canvas.width = this.cols * this.particleSize;
       canvas.height = this.rows * this.particleSize;
       ctx.drawImage(resources.dust.data, 0, 0);

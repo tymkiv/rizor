@@ -15,10 +15,12 @@ class Particle {
     this.speedX = 0;
     this.speedY = 0;
 
-    this.radius = 100;
+    this.radius = 50;
 
     this.friction = 0.9;
     this.gravity = 0.01;
+
+    this.maxGravity = 0.01 + Math.random() * 0.03;
 
     this.dirX = Math.random() - 0.5;
     this.dirY = Math.random() - 0.5;
@@ -35,8 +37,11 @@ class Particle {
 
     // mouse interaction
     if(distance < this.radius){
+      this.gravity *= this.friction;
       this.speedX -= normalX;
       this.speedY -= normalY;
+    } else {
+      this.gravity += 0.1 * (this.maxGravity - this.gravity);
     }
 
     //back home
