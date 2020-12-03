@@ -27,13 +27,10 @@ function linkAnchorHandler(e) {
   const urlParsed = new URL(url);
   console.dir(urlParsed);
   if(urlParsed.hash.length > 0) {
-    let currentHref = window.location.href.slice(0, window.location.href.indexOf('#'));
-    if(currentHref[currentHref.length-1] != '/') currentHref += '/';
-    if(currentHref === urlParsed.href.slice(0, urlParsed.href.indexOf('#'))) {
-      e.preventDefault();
-      let top = $(urlParsed.hash).offset().top - 200;
-      $('body,html').animate({scrollTop: top}, 600);
-    }
+    e.preventDefault();
+    let top = $(urlParsed.hash).offset().top - 200;
+    $('body,html').animate({scrollTop: top}, 600);
+    
   }
 }
 

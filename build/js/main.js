@@ -23,16 +23,11 @@ function linkAnchorHandler(e) {
   console.dir(urlParsed);
 
   if (urlParsed.hash.length > 0) {
-    var currentHref = window.location.href.slice(0, window.location.href.indexOf('#'));
-    if (currentHref[currentHref.length - 1] != '/') currentHref += '/';
-
-    if (currentHref === urlParsed.href.slice(0, urlParsed.href.indexOf('#'))) {
-      e.preventDefault();
-      var top = $(urlParsed.hash).offset().top - 200;
-      $('body,html').animate({
-        scrollTop: top
-      }, 600);
-    }
+    e.preventDefault();
+    var top = $(urlParsed.hash).offset().top - 200;
+    $('body,html').animate({
+      scrollTop: top
+    }, 600);
   }
 } // Обнаруживает # и прокручивает к нужному блоку
 
