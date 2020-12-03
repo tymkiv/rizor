@@ -11,3 +11,12 @@
     min-height: 100vh;
   }
 }
+
+#anim-text {
+  h2 {
+    font-size: 60px;
+    * {
+      display: inline-block;
+    }
+  }
+}

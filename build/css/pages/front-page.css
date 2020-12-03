@@ -70,3 +70,11 @@
   padding-top: 10rem;
   min-height: 100vh;
 }
+
+#anim-text h2 {
+  font-size: 60px;
+}
+
+#anim-text h2 * {
+  display: inline-block;
+}
