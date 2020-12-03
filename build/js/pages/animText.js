@@ -94,7 +94,7 @@ var Part = /*#__PURE__*/function () {
       this.offX += this.speedX;
       this.offY += this.speedY;
       this.rotate = 0;
-      this.rotate = this.speedY * 10;
+      this.rotate = this.speedY * 5;
       this.particle.style.transform = "translate3d(".concat(this.offX, "px, ").concat(this.offY, "px, 0) rotate(").concat(this.rotate, "deg)");
     }
   }]);

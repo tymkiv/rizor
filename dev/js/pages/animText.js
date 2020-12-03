@@ -92,7 +92,7 @@ class Part {
 
     this.rotate = 0;
 
-    this.rotate =  this.speedY*10;
+    this.rotate =  this.speedY*5;
 
     this.particle.style.transform = `translate3d(${this.offX}px, ${this.offY}px, 0) rotate(${this.rotate}deg)`;
   }
