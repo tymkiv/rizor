@@ -28,3 +28,18 @@
     transform: rotate(360deg);
   }
 }
+
+@keyframes decor_arrow_moves {
+  0% {
+    top: 0;
+    height: 6rem;
+  }
+  50% {
+    top: 1rem;
+    height: 7rem;
+  }
+  100% {
+    top: 0;
+    height: 6rem;
+  }
+}

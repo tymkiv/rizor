@@ -14,6 +14,7 @@ var AnimText = /*#__PURE__*/function () {
 
     this.text = text;
     this.particles = [];
+    console.dir(this);
     this.mouseX = 0;
     this.mouseY = 0;
     $(this.text.children).each(function (i, p) {
@@ -63,6 +64,7 @@ var Part = /*#__PURE__*/function () {
     this.friction = 0.9;
     this.gravity = 0.01;
     this.maxGravity = 0.01 + Math.random() * 0.05;
+    window.addEventListener('resize', this.onResizeHandler.bind(this));
   }
 
   _createClass(Part, [{
@@ -89,19 +91,27 @@ var Part = /*#__PURE__*/function () {
       this.oDistY = this.originalCenterY - this.centerY;
       this.speedX += this.oDistX * this.gravity;
       this.speedY += this.oDistY * this.gravity;
-      this.speedX *= this.friction;
-      this.speedY *= this.friction;
+      this.speedX *= this.friction.toFixed(3);
+      this.speedY *= this.friction.toFixed(3);
       this.offX += this.speedX;
       this.offY += this.speedY;
       this.rotate = 0;
       this.rotate = this.speedY * 5;
       this.particle.style.transform = "translate3d(".concat(this.offX, "px, ").concat(this.offY, "px, 0) rotate(").concat(this.rotate, "deg)");
     }
+  }, {
+    key: "onResizeHandler",
+    value: function onResizeHandler() {
+      this.width = this.particle.offsetWidth;
+      this.height = this.particle.offsetHeight;
+      this.top = this.particle.getBoundingClientRect().top;
+      this.left = this.particle.getBoundingClientRect().left;
+      this.originalCenterX = this.left + this.width / 2;
+      this.originalCenterY = this.top + this.height / 2;
+    }
   }]);
 
   return Part;
 }();
 
-$(function () {
-  new AnimText(document.querySelector('#anim-text h2'));
-});
+$(function () {});

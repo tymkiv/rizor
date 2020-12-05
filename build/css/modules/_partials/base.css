@@ -58,6 +58,40 @@
   }
 }
 
+@-webkit-keyframes decor_arrow_moves {
+  0% {
+    top: 0;
+    height: 6rem;
+  }
+
+  50% {
+    top: 1rem;
+    height: 7rem;
+  }
+
+  100% {
+    top: 0;
+    height: 6rem;
+  }
+}
+
+@keyframes decor_arrow_moves {
+  0% {
+    top: 0;
+    height: 6rem;
+  }
+
+  50% {
+    top: 1rem;
+    height: 7rem;
+  }
+
+  100% {
+    top: 0;
+    height: 6rem;
+  }
+}
+
 *,
 *:before,
 *:after {
@@ -105,7 +139,7 @@ button:focus {
 
 .container {
   max-width: 117rem;
-  padding: 0 2rem;
+  padding: 0 1.5rem;
   margin: 0 auto;
 }
 

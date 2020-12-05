@@ -2,7 +2,7 @@ class AnimText {
   constructor(text){
     this.text = text;
     this.particles = [];
-
+    console.dir(this);
     this.mouseX = 0;
     this.mouseY = 0;
 
@@ -54,6 +54,8 @@ class Part {
 
     this.gravity = 0.01;
     this.maxGravity = 0.01 + Math.random()*0.05;
+
+    window.addEventListener('resize', this.onResizeHandler.bind(this));
   }
 
   update(mouseX, mouseY){
@@ -84,8 +86,8 @@ class Part {
     this.speedX += this.oDistX * this.gravity;
     this.speedY += this.oDistY * this.gravity;
 
-    this.speedX *= this.friction;
-    this.speedY *= this.friction;
+    this.speedX *= this.friction.toFixed(3);
+    this.speedY *= this.friction.toFixed(3);
 
     this.offX += this.speedX;
     this.offY += this.speedY;
@@ -96,8 +98,19 @@ class Part {
 
     this.particle.style.transform = `translate3d(${this.offX}px, ${this.offY}px, 0) rotate(${this.rotate}deg)`;
   }
+
+  onResizeHandler(){
+    this.width = this.particle.offsetWidth;
+    this.height = this.particle.offsetHeight;
+    
+    this.top = this.particle.getBoundingClientRect().top;
+    this.left = this.particle.getBoundingClientRect().left;
+    
+    this.originalCenterX = this.left + this.width/2;
+    this.originalCenterY = this.top + this.height/2;
+  }
 }
 
 $(function(){
-  new AnimText(document.querySelector('#anim-text h2'));
+  
 })
