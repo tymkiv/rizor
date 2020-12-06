@@ -94,6 +94,8 @@ var Part = /*#__PURE__*/function () {
 
     this.originalCenterX = this.textLeft + this.particleLeft + this.width / 2;
     this.originalCenterY = this.textTop + this.particleTop + this.height / 2;
+    this.baseCenterX = this.originalCenterX;
+    this.baseCenterY = this.originalCenterY;
 
     if (this.i == 7) {// console.log('this.textTop', this.textTop);
       // console.log('this.particleTop', this.particleTop);
@@ -118,7 +120,7 @@ var Part = /*#__PURE__*/function () {
       if (!this.isInAnim) {
         this.isInAnim = true;
         gsap.to(this, speed, {
-          originalCenterY: "+=".concat(top),
+          originalCenterY: this.baseCenterY + top,
           onComplete: function onComplete() {
             _this3.isInAnim = false;
             _this3.onCompleteAnim && _this3.onCompleteAnim();
@@ -140,14 +142,16 @@ var Part = /*#__PURE__*/function () {
       this.particleTop = $(this.particle).position().top;
       this.particleLeft = $(this.particle).position().left;
       this.centerX = this.textLeft + this.particleLeft + this.width / 2;
-      this.centerY = this.textTop + this.particleTop + this.height / 2; // if(this.i == 7) {
-      //   console.log('this.centerX', this.centerX);
-      //   console.log('this.centerY', this.centerY);
-      // }
-      // this.top = this.particle.getBoundingClientRect().top;
+      this.centerY = this.textTop + this.particleTop + this.height / 2;
+
+      if (this.i == 7) {
+        console.log('this.centerY', this.centerY); // console.log('this.textTop', this.textTop);
+        // console.log('this.textTop', this.textTop);
+      } // this.top = this.particle.getBoundingClientRect().top;
       // this.left = this.particle.getBoundingClientRect().left;
       // this.centerX = this.left + this.width/2;
       // this.centerY = this.top + this.height/2;
+
 
       this.distanceX = this.centerX - mouseX;
       this.distanceY = this.centerY - mouseY;
@@ -178,17 +182,15 @@ var Part = /*#__PURE__*/function () {
     key: "onResizeHandler",
     value: function onResizeHandler() {
       this.width = this.particle.offsetWidth;
-      this.height = this.particle.offsetHeight; // this.top = this.particle.getBoundingClientRect().top;
-      // this.left = this.particle.getBoundingClientRect().left;
-      // this.originalCenterX = this.left + this.width/2;
-      // this.originalCenterY = this.top + this.height/2;
+      this.height = this.particle.offsetHeight; // this.textTop = this.text.getBoundingClientRect().top;
+      // this.textLeft = this.text.getBoundingClientRect().left;
 
-      this.textTop = this.text.getBoundingClientRect().top;
-      this.textLeft = this.text.getBoundingClientRect().left;
       this.particleTop = this.particle.offsetTop;
       this.particleLeft = this.particle.offsetLeft;
       this.originalCenterX = this.textLeft + this.particleLeft + this.width / 2;
       this.originalCenterY = this.textTop + this.particleTop + this.height / 2;
+      this.baseCenterX = this.originalCenterX;
+      this.baseCenterY = this.originalCenterY;
     }
   }]);
 

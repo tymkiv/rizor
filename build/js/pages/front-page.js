@@ -1,8 +1,8 @@
 "use strict";
 
-var AT;
+var AT, fullPageSlider;
 $(function () {
-  var fullPageSlider = new FullPageSlider();
+  fullPageSlider = new FullPageSlider();
   document.querySelectorAll('.video-wrapper').forEach(function (video_wrapper) {
     new VideoChanger(video_wrapper);
   });
@@ -11,9 +11,23 @@ $(function () {
     new SpellerText(document.querySelector('.section--first .section__title'));
     AT = new AnimText(document.querySelector('.section--first .section__title'));
     new MovePlayBtnOnVideo(document.querySelector('.section--first .section__video-wrapper'), document.querySelector('.section--first .section__video-wrapper .video-wrapper__play-btn'), document.querySelector('.section--first .section__video-wrapper .play-btn__icon'));
+    new MovePlayBtnOnVideo(document.querySelector('.section--advantages .section__video-wrapper'), document.querySelector('.section--advantages .section__video-wrapper .video-wrapper__play-btn'), document.querySelector('.section--advantages .section__video-wrapper .play-btn__icon'));
   }, 100);
   window.addEventListener('resize', function () {
     movePlayBtnForSec1();
+  });
+  var galleryThumbs = new Swiper('.section--advantages .gallery-thumbs', {
+    spaceBetween: 35,
+    slidesPerView: 'auto',
+    freeMode: true,
+    watchSlidesVisibility: true,
+    watchSlidesProgress: true
+  });
+  var galleryTop = new Swiper('.section--advantages .gallery-top', {
+    spaceBetween: 10,
+    thumbs: {
+      swiper: galleryThumbs
+    }
   });
 }); // Двигаю кнопку play туда куда нужно
 

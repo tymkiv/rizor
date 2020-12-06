@@ -7,6 +7,10 @@
   .full-page-slider {
     height: 100vh;
 
+    .container {
+      padding: 0 5rem;
+    }
+
     .full-page-slider__pagination {
       right: 3rem;
       top: 9rem;
@@ -18,13 +22,14 @@
       justify-content: center;
       align-items: center;
       overflow: hidden;
+      pointer-events: none;
 
       .swiper-pagination-bullet {
         opacity: 1;
         width: 1.3rem;
         height: 1.3rem;
         background: transparent;
-        
+        pointer-events: all;
         &:after {
           content: '';
           position: absolute;
@@ -114,6 +119,9 @@
       
     }
   }
+
+
+  /* ----- BEGIN section--first ----- */
   .section--first {
     overflow: hidden;
     .section__wrapper {
@@ -166,6 +174,8 @@
     }
     
   }
+  /* ----- END section--first ----- */
+
 
   /* ----- BEGIN video-wrapper ----- */
   .video-wrapper {
@@ -179,6 +189,7 @@
     }
   }
   /* ----- END video-wrapper ----- */
+
 
   /* ----- BEGIN play-btn ----- */
   .play-btn {
@@ -239,4 +250,66 @@
     }
   }
   /* ----- END play-btn ----- */
+
+
+  /* ----- BEGIN section-advantages ----- */
+.section--advantages {
+  .section__wrapper {
+    min-height: 100%;
+    
+    // position: static;
+  }
+  .container {
+    position: static;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .video-wrapper {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-top: -5rem;
+    left: 0;
+    width: 40%;
+    max-height: 80vh;
+    max-height: calc(100vh - 20rem);
+    &:before {
+      padding-top: 100%;
+    }
+  }
+  .section__text-wrapper {
+    margin-top: 25%;
+    flex-basis: 30%;
+    width: 30%;
+  }
+  .color-slider {
+    margin-top: 45%;
+    flex-basis: 30%;
+    width: 30%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .section__sup-title-wrapper {
+
+  }
+  .section__sup-title {
+
+  }
+  .section__title {
+
+  }
+  .section__list-wrapper {
+
+  }
+  .section__list-title {
+
+  }
+  .section__list {
+
+  }
+  .section__list-item {
+    
+  }
+}
+/* ----- END section-advantages ----- */
 } 

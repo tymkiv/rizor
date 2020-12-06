@@ -1,6 +1,6 @@
-let AT;
+let AT, fullPageSlider;
 $(function () { 
-  const fullPageSlider = new FullPageSlider();
+  fullPageSlider = new FullPageSlider();
   
   document.querySelectorAll('.video-wrapper').forEach((video_wrapper)=>{
     new VideoChanger(video_wrapper);
@@ -15,7 +15,14 @@ $(function () {
       document.querySelector('.section--first .section__video-wrapper'), 
       document.querySelector('.section--first .section__video-wrapper .video-wrapper__play-btn'),
       document.querySelector('.section--first .section__video-wrapper .play-btn__icon'),
-      );
+    );
+
+    new MovePlayBtnOnVideo(
+      document.querySelector('.section--advantages .section__video-wrapper'), 
+      document.querySelector('.section--advantages .section__video-wrapper .video-wrapper__play-btn'),
+      document.querySelector('.section--advantages .section__video-wrapper .play-btn__icon'),
+    );
+
   }, 100);
   
 
@@ -23,6 +30,22 @@ $(function () {
   window.addEventListener('resize', () => {
     movePlayBtnForSec1();
   })
+
+
+  var galleryThumbs = new Swiper('.section--advantages .gallery-thumbs', {
+    spaceBetween: 35,
+    slidesPerView: 'auto',
+    freeMode: true,
+    watchSlidesVisibility: true,
+    watchSlidesProgress: true,
+  });
+  var galleryTop = new Swiper('.section--advantages .gallery-top', {
+    spaceBetween: 10,
+    
+    thumbs: {
+      swiper: galleryThumbs
+    }
+  });
 
 });
 

@@ -8,7 +8,7 @@
   /* -- SECTION -- */
   &__section {
     padding-top: 5rem;
-    min-height: 100vh;
+    
   }
 }
 
@@ -32,7 +32,7 @@
     }
   }
   &__sub-title {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     text-transform: uppercase;
     font-weight: 700;
   }
@@ -41,6 +41,7 @@
   }
 }
 
+/* ----- BEGIN section-first ----- */
 .section--first {
 
   .section__text-wrapper {
@@ -82,6 +83,8 @@
     }
   }
 }
+/* ----- END section-first ----- */
+
 
 /* ----- BEGIN video-wrapper ----- */
 .video-wrapper {
@@ -142,6 +145,7 @@
 
 }
 /* ----- END video-wrapper ----- */
+
 
 /* ----- BEGIN play-btn ----- */
 .play-btn {
@@ -208,3 +212,192 @@
   }
 }
 /* ----- END play-btn ----- */
+
+
+/* ----- BEGIN section-advantages ----- */
+.section--advantages {
+  .section__text-wrapper {
+    margin-top: 4rem;
+    max-width: 30rem;
+  }
+  .section__sup-title-wrapper {
+
+  }
+  .section__sup-title {
+    text-transform: uppercase;
+    color: #3a30f8;
+    font-size: 1.6rem;
+  }
+  .section__title {
+    font-size: 2.6rem;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+  }
+
+  .section__sub-title {
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 1.5em;
+    text-transform: initial;
+  }
+
+  .section__list {
+    margin-top: 3rem;
+  }
+
+  .video-wrapper {
+    margin-top: 4rem;
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
+    .play-btn {
+      padding: 0;
+      top: 50%;
+      left: 50%;
+      margin: 0;
+      right: auto;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  .color-slider {
+    .gallery-thumbs {
+      margin-top: 5rem;
+    }
+    .gallery-top {
+      margin-left: -1.5rem;
+      margin-right: -1.5rem;
+    }
+    
+  }
+}
+/* ----- END section-advantages ----- */
+
+
+/* ----- BEGIN list ----- */
+.list {
+  padding: 0;
+
+  &__item {
+    padding-left: 4rem;
+    list-style: none;
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 1.5em;
+    &:not(:last-child) {
+      margin-bottom: 1.5rem;
+    }
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0.5em;
+      left: 0;
+      height: 0.5rem;
+      width: 3rem;
+      background-color: #000;
+    }
+  }
+}
+/* ----- END list ----- */
+
+
+/* ----- BEGIN color-slider ----- */
+.color-slider {
+  max-width: 40rem;
+  margin-left: auto;
+  margin-right: auto;
+  .gallery-thumbs {
+    margin-bottom: 3.5rem;
+    width: 27rem;
+    max-width: 70%;
+    margin-left: auto;
+    margin-right: 0;
+    padding-bottom: 6rem;
+    margin-bottom: -3rem;
+    .swiper-wrapper {
+      // justify-content: center;
+    }
+    .swiper-slide {
+      width: 2rem;
+      height: 2rem;
+      cursor: pointer;
+      &:after {
+        content: '';
+        position: absolute;
+        top: 100%;
+        margin-top: 1rem;
+        width: 1px;
+        height: 0rem;
+        background-color: rgba(0,0,0,.3);
+        left: 50%;
+        transition: 0.3s ease-in-out;
+      }
+      &:before {
+        content: '';
+        position: absolute;
+        top: 100%;
+        margin-top: 1rem;
+        width: 3px;
+        height: 3px;
+        left: 50%;
+        margin-left: -1px;
+        background-color: rgba(0,0,0,.3);
+        border-radius: 50%;
+        opacity: 0;
+        transition: 0.3s ease-in-out;
+      }
+
+      &.swiper-slide-thumb-active {
+        &:after {
+          height: 4.5rem;
+        }
+        &:before {
+          margin-top: 5.5rem;
+          opacity: 1;
+        }
+      }
+
+      .round {
+        width: 2rem;
+        height: 2rem;
+        border-radius: 50%;
+      }
+      .round--green {
+        background-color: #e2e837;
+      }
+      .round--blue {
+        background-color: #00b6f1;
+      }
+      .round--red {
+        background-color: #e23232;
+      }
+      .round--grey {
+        background-color: #f0efef;
+      }
+      .round--black {
+        background-color: #0c0c0c;
+      }
+    }
+  }
+  .gallery-top {
+    .swiper-slide {
+      .img-wrap {
+        width: 100%;
+        &:before {
+          content: '';
+          display: block;
+          padding-top: 100%;
+        }
+        picture {
+          position: absolute;
+          top: 0;
+          left: 1.5rem;right: 1.5rem;
+          bottom: 0;
+        }
+        img {
+          object-position: top center;
+        }
+      }
+    }
+  }
+}
+/* ----- END color-slider ----- */

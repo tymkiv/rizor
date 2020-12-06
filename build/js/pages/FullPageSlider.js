@@ -25,9 +25,13 @@ var FullPageSlider = /*#__PURE__*/function () {
 
   _createClass(FullPageSlider, [{
     key: "init",
-    value: function init() {
+    value: function init(lastActiveIndex) {
       this.slider = this.createSlider();
       this.indicator = this.createIndicator();
+
+      if (lastActiveIndex) {
+        this.slider.slideTo(lastActiveIndex, 0);
+      }
     } // Метод, возвращающий слайдер
 
   }, {
@@ -51,7 +55,7 @@ var FullPageSlider = /*#__PURE__*/function () {
             }
 
             if (_this2.slider.activeIndex == 0) {
-              AT.updateOriginalCoords(_g.clientH / 2, 0.5);
+              AT.updateOriginalCoords(0, 0.5);
             }
           }
         }
@@ -72,7 +76,7 @@ var FullPageSlider = /*#__PURE__*/function () {
 
           var wrapper = document.querySelectorAll('.full-page-slider__section .section__wrapper')[_this3.slider.activeIndex];
 
-          var height = section.offsetHeight;
+          var height = section.offsetHeight - +$(section).css('paddingTop').slice(0, -2);
           var factHeight = wrapper.scrollHeight;
           var offset = factHeight - height; // Если слайд больше высоты экрана
 
@@ -113,11 +117,15 @@ var FullPageSlider = /*#__PURE__*/function () {
   }, {
     key: "onResizeHandler",
     value: function onResizeHandler() {
-      this.slider && this.slider.destroy();
+      if (this.slider) {
+        this.lastActiveIndex = this.slider.activeIndex;
+        this.slider.destroy();
+      }
+
       this.indicator && this.indicator.destroy();
 
       if (_g.isDesktop) {
-        this.init();
+        this.init(this.lastActiveIndex);
       }
     }
   }]);

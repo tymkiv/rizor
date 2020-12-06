@@ -81,6 +81,9 @@ class Part {
     this.originalCenterX = this.textLeft + this.particleLeft + this.width/2;
     this.originalCenterY = this.textTop + this.particleTop + this.height/2;
 
+    this.baseCenterX = this.originalCenterX;
+    this.baseCenterY = this.originalCenterY;
+
     if(this.i == 7) {
       // console.log('this.textTop', this.textTop);
       // console.log('this.particleTop', this.particleTop);
@@ -105,7 +108,7 @@ class Part {
   updateOriginalCoords(top, speed) {
     if(!this.isInAnim) {
       this.isInAnim = true;
-      gsap.to(this, speed, { originalCenterY: `+=${top}`, onComplete: ()=> {
+      gsap.to(this, speed, { originalCenterY: this.baseCenterY + top, onComplete: ()=> {
         this.isInAnim = false;
         this.onCompleteAnim && this.onCompleteAnim();
       } })
@@ -128,10 +131,11 @@ class Part {
     this.centerX = this.textLeft + this.particleLeft + this.width/2;
     this.centerY = this.textTop + this.particleTop + this.height/2;
 
-    // if(this.i == 7) {
-    //   console.log('this.centerX', this.centerX);
-    //   console.log('this.centerY', this.centerY);
-    // }
+    if(this.i == 7) {
+      console.log('this.centerY', this.centerY);
+      // console.log('this.textTop', this.textTop);
+      // console.log('this.textTop', this.textTop);
+    }
 
     // this.top = this.particle.getBoundingClientRect().top;
     // this.left = this.particle.getBoundingClientRect().left;
@@ -176,21 +180,18 @@ class Part {
   onResizeHandler(){
     this.width = this.particle.offsetWidth;
     this.height = this.particle.offsetHeight;
-    
-    // this.top = this.particle.getBoundingClientRect().top;
-    // this.left = this.particle.getBoundingClientRect().left;
-    
-    // this.originalCenterX = this.left + this.width/2;
-    // this.originalCenterY = this.top + this.height/2;
 
-    this.textTop = this.text.getBoundingClientRect().top;
-    this.textLeft = this.text.getBoundingClientRect().left;
+    // this.textTop = this.text.getBoundingClientRect().top;
+    // this.textLeft = this.text.getBoundingClientRect().left;
 
     this.particleTop = this.particle.offsetTop;
     this.particleLeft = this.particle.offsetLeft;
 
     this.originalCenterX = this.textLeft + this.particleLeft + this.width/2;
     this.originalCenterY = this.textTop + this.particleTop + this.height/2;
+
+    this.baseCenterX = this.originalCenterX;
+    this.baseCenterY = this.originalCenterY;
   }
 }
 

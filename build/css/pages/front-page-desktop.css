@@ -101,6 +101,10 @@
     height: 100vh;
   }
 
+  .full-page-slider .container {
+    padding: 0 5rem;
+  }
+
   .full-page-slider .full-page-slider__pagination {
     right: 3rem;
     top: 9rem;
@@ -123,6 +127,7 @@
     -ms-flex-align: center;
     align-items: center;
     overflow: hidden;
+    pointer-events: none;
   }
 
   .full-page-slider .full-page-slider__pagination .swiper-pagination-bullet {
@@ -130,6 +135,7 @@
     width: 1.3rem;
     height: 1.3rem;
     background: transparent;
+    pointer-events: all;
   }
 
   .full-page-slider .full-page-slider__pagination .swiper-pagination-bullet:after {
@@ -201,6 +207,8 @@
     font-size: 2rem;
   }
 
+  /* ----- BEGIN section--first ----- */
+
   .section--first {
     overflow: hidden;
   }
@@ -266,6 +274,8 @@
     margin-top: 1rem;
     margin-left: 4rem;
   }
+
+  /* ----- END section--first ----- */
 
   /* ----- BEGIN video-wrapper ----- */
 
@@ -337,4 +347,55 @@
   }
 
   /* ----- END play-btn ----- */
+
+  /* ----- BEGIN section-advantages ----- */
+
+  .section--advantages .section__wrapper {
+    min-height: 100%;
+  }
+
+  .section--advantages .container {
+    position: static;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+  }
+
+  .section--advantages .video-wrapper {
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    margin-top: -5rem;
+    left: 0;
+    width: 40%;
+    max-height: 80vh;
+    max-height: calc(100vh - 20rem);
+  }
+
+  .section--advantages .video-wrapper:before {
+    padding-top: 100%;
+  }
+
+  .section--advantages .section__text-wrapper {
+    margin-top: 25%;
+    -ms-flex-preferred-size: 30%;
+    flex-basis: 30%;
+    width: 30%;
+  }
+
+  .section--advantages .color-slider {
+    margin-top: 45%;
+    -ms-flex-preferred-size: 30%;
+    flex-basis: 30%;
+    width: 30%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  /* ----- END section-advantages ----- */
 }
