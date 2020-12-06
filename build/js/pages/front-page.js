@@ -6,6 +6,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+var AT;
 $(function () {
   var fullPageSlider = new FullPageSlider();
   document.querySelectorAll('.video-wrapper').forEach(function (video_wrapper) {
@@ -14,7 +15,7 @@ $(function () {
   setTimeout(function () {
     movePlayBtnForSec1();
     new SpellerText(document.querySelector('.section--first .section__title'));
-    new AnimText(document.querySelector('.section--first .section__title'));
+    AT = new AnimText(document.querySelector('.section--first .section__title'));
   }, 100);
   window.addEventListener('resize', function () {
     movePlayBtnForSec1();
@@ -127,15 +128,32 @@ var FullPageSlider = /*#__PURE__*/function () {
 
 
             if (section.scrollTop >= offset && e.direction == 'down') {
+              if (_this3.slider.activeIndex == 1) {
+                console.log('Hello');
+              }
+
               _this3.slider.slideNext();
             }
           } // Если слайд не больше высоты экрана (стандартный)
           else {
               if (e.direction == 'up') {
+                console.log(_this3.slider.activeIndex);
+
+                if (_this3.slider.activeIndex == 1) {
+                  console.log('up'); // setTimeout(()=>{
+
+                  AT.updateOriginalCoords(600, 0.5); // }, 800)
+                }
+
                 _this3.slider.slidePrev();
               }
 
               if (e.direction == 'down') {
+                if (_this3.slider.activeIndex == 0) {
+                  console.log('down');
+                  AT.updateOriginalCoords(-600, 0.5);
+                }
+
                 _this3.slider.slideNext();
               }
             }

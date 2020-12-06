@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <link rel="stylesheet" href="./build/css/main.css">
+  <link rel="stylesheet" href="./build/css/main-desktop.css">
+
+  <style>
+    section {
+      height: 300vh;
+    }
+    #text {
+      top: 100px;
+      font-family: 'RubikMonoOne', sans-serif;
+      text-transform: uppercase;
+    }
+    #text span {
+      font-family: 'RubikMonoOne', sans-serif;
+      text-transform: uppercase;
+      display: inline-block;
+      font-size: 8rem;
+    }
+  </style>
+
+  <section>
+
+    <div id="text"> RIzor Hovertrax 4.0 </div>
+
+  </section>
+
+  <script src="./libs/jquery-3.5.0.min.js"></script>
+  <script src="./libs/gsap.min.js"></script>
+
+  <script src="./libs/focus-visible.min.js"></script>
+  <script src="./libs/ofi.min.js"></script>
+  <script src="./libs/svg4everybody.js"></script>
+
+  <script src="./build/js/modules/partials/global.js"></script>
+  <script src="./build/js/modules/partials/ClassScrollBlocker.js"></script>
+  <script src="./build/js/modules/partials/ClassFocusTrap.js"></script>
+  <script src="./build/js/main.js"></script>
+
+  <script src="./build/js/pages/SpellerText.js"></script>
+  <script src="./build/js/pages/animText.js"></script>
+
+  <script>
+    new SpellerText(document.querySelector('#text'));
+    setTimeout(()=>{
+      new AnimText(document.querySelector('#text'));
+    }, 300);
+    
+  </script>
+</body>
+</html>

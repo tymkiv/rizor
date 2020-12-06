@@ -1,6 +1,7 @@
+let AT;
 $(function () { 
   const fullPageSlider = new FullPageSlider();
-
+  
   document.querySelectorAll('.video-wrapper').forEach((video_wrapper)=>{
     new VideoChanger(video_wrapper);
   });
@@ -8,7 +9,7 @@ $(function () {
   setTimeout(() => {
     movePlayBtnForSec1();
     new SpellerText(document.querySelector('.section--first .section__title'));
-    new AnimText(document.querySelector('.section--first .section__title'));
+    AT = new AnimText(document.querySelector('.section--first .section__title'));
   }, 100);
   
 
@@ -114,15 +115,32 @@ class FullPageSlider {
           } 
           // Если слайд в самом конце, и мы скролим вниз
           if( section.scrollTop >= offset && e.direction == 'down' ) {
-            this.slider.slideNext();
+            if(this.slider.activeIndex == 1) {
+              console.log('Hello');
+            }
+            this.slider.slideNext();            
           }
         } 
         // Если слайд не больше высоты экрана (стандартный)
         else {
           if(e.direction == 'up') {
+            
+            console.log(this.slider.activeIndex);
+            if(this.slider.activeIndex == 1) {
+              console.log('up');
+              // setTimeout(()=>{
+                AT.updateOriginalCoords(600, 0.5);
+              // }, 800)
+              
+            }
             this.slider.slidePrev();
           }
           if(e.direction == 'down') {
+            
+            if(this.slider.activeIndex == 0) {
+              console.log('down');
+              AT.updateOriginalCoords(-600, 0.5);
+            }
             this.slider.slideNext();
           }
         }        

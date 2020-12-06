@@ -2,21 +2,34 @@ class AnimText {
   constructor(text){
     this.text = text;
     this.particles = [];
-    console.dir(this);
+
     this.mouseX = 0;
     this.mouseY = 0;
 
     $(this.text.children).each((i, p) => {
-      this.particles.push( new Part(p, i) );
+      this.particles.push( new Part(p, i, text) );
     });
   
     window.addEventListener('mousemove', this.mouse.bind(this))
-    gsap.ticker.add(this.update.bind(this));
+    
+    if(_g.isDesktop) {
+      gsap.ticker.add(this.update.bind(this));
+      this.isActive = true;
+    }
+
+    window.addEventListener('resize',this.onResizeHandler.bind(this) )
   }
 
   mouse(e){
+    // console.dir(e);
     this.mouseX = e.pageX;
     this.mouseY = e.pageY;
+  }
+
+  updateOriginalCoords(top, speed = 1){
+    this.particles.forEach(p => {
+      p.updateOriginalCoords(top, speed);
+    });
   }
 
   update(){
@@ -25,22 +38,54 @@ class AnimText {
     });
   }
 
+  onResizeHandler(){
+    if(_g.isDesktop) {
+      if(!this.isActive) {
+        this.isActive = true;
+        gsap.ticker.add(this.update.bind(this));
+        
+      }
+    } 
+    // else {
+    //   if(this.isActive) {
+    //     gsap.ticker.remove(this.update.bind(this));
+    //     this.isActive = false;
+    //   }
+    // }
+  }
+
 }
 
 class Part {
-  constructor(particle, i){
+  constructor(particle, i, text){
     this.particle = particle;
-
+    
     this.i = i;
+    this.text = text;
 
     this.width = particle.offsetWidth;
     this.height = particle.offsetHeight;
     
-    this.top = particle.getBoundingClientRect().top;
-    this.left = particle.getBoundingClientRect().left;
+    this.textTop = this.text.getBoundingClientRect().top;
+    this.textLeft = this.text.getBoundingClientRect().left;
+
+    // this.particleTop = this.particle.offsetTop;
+    // this.particleLeft = this.particle.offsetLeft;
+    this.particleTop = $(this.particle).position().top;
+    this.particleLeft = $(this.particle).position().left;
+
+    // this.top = particle.getBoundingClientRect().top;
+    // this.left = particle.getBoundingClientRect().left;
     
-    this.originalCenterX = this.left + this.width/2;
-    this.originalCenterY = this.top + this.height/2;
+    // this.originalCenterX = this.left + this.width/2;
+    // this.originalCenterY = this.top + this.height/2;
+    this.originalCenterX = this.textLeft + this.particleLeft + this.width/2;
+    this.originalCenterY = this.textTop + this.particleTop + this.height/2;
+
+    if(this.i == 7) {
+      console.log('this.textTop', this.textTop);
+      console.log('this.particleTop', this.particleTop);
+    }
 
     this.offX = 0;
     this.offY = 0;
@@ -58,12 +103,42 @@ class Part {
     window.addEventListener('resize', this.onResizeHandler.bind(this));
   }
 
-  update(mouseX, mouseY){
-    this.top = this.particle.getBoundingClientRect().top;
-    this.left = this.particle.getBoundingClientRect().left;
+  updateOriginalCoords(top, speed) {
+    if(!this.isInAnim) {
+      this.isInAnim = true;
+      gsap.to(this, speed, { originalCenterY: `+=${top}`, onComplete: ()=> {
+        this.isInAnim = false;
+        this.onCompleteAnim && this.onCompleteAnim();
+      } })
+    } else {
+      this.onCompleteAnim = () => {
+        this.updateOriginalCoords(top, speed);
+        this.onCompleteAnim = false;
+      }
+    }
+    
+  }
 
-    this.centerX = this.left + this.width/2;
-    this.centerY = this.top + this.height/2;
+  update(mouseX, mouseY){
+    // this.textTop = this.text.getBoundingClientRect().top;
+    // this.textLeft = this.text.getBoundingClientRect().left;
+
+    this.particleTop = $(this.particle).position().top;
+    this.particleLeft = $(this.particle).position().left;
+
+    this.centerX = this.textLeft + this.particleLeft + this.width/2;
+    this.centerY = this.textTop + this.particleTop + this.height/2;
+
+    // if(this.i == 7) {
+    //   console.log('this.centerX', this.centerX);
+    //   console.log('this.centerY', this.centerY);
+    // }
+
+    // this.top = this.particle.getBoundingClientRect().top;
+    // this.left = this.particle.getBoundingClientRect().left;
+
+    // this.centerX = this.left + this.width/2;
+    // this.centerY = this.top + this.height/2;
 
     this.distanceX = this.centerX - mouseX;
     this.distanceY = this.centerY - mouseY;
@@ -86,8 +161,8 @@ class Part {
     this.speedX += this.oDistX * this.gravity;
     this.speedY += this.oDistY * this.gravity;
 
-    this.speedX *= this.friction.toFixed(3);
-    this.speedY *= this.friction.toFixed(3);
+    this.speedX *= this.friction;
+    this.speedY *= this.friction;
 
     this.offX += this.speedX;
     this.offY += this.speedY;
@@ -103,11 +178,20 @@ class Part {
     this.width = this.particle.offsetWidth;
     this.height = this.particle.offsetHeight;
     
-    this.top = this.particle.getBoundingClientRect().top;
-    this.left = this.particle.getBoundingClientRect().left;
+    // this.top = this.particle.getBoundingClientRect().top;
+    // this.left = this.particle.getBoundingClientRect().left;
     
-    this.originalCenterX = this.left + this.width/2;
-    this.originalCenterY = this.top + this.height/2;
+    // this.originalCenterX = this.left + this.width/2;
+    // this.originalCenterY = this.top + this.height/2;
+
+    this.textTop = this.text.getBoundingClientRect().top;
+    this.textLeft = this.text.getBoundingClientRect().left;
+
+    this.particleTop = this.particle.offsetTop;
+    this.particleLeft = this.particle.offsetLeft;
+
+    this.originalCenterX = this.textLeft + this.particleLeft + this.width/2;
+    this.originalCenterY = this.textTop + this.particleTop + this.height/2;
   }
 }
 

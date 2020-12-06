@@ -77,8 +77,10 @@
       font-size: 8rem;
       margin-top: 0;
       max-width: 65rem;
+      z-index: 20;
+      pointer-events: none;
       span {
-        z-index: 20;
+        pointer-events: all;
         display: inline-block;
       }
     }
@@ -110,6 +112,13 @@
 
   /* ----- BEGIN play-btn ----- */
   .play-btn {
+    &__icon {
+      width: 6.5rem;
+      height: 6.5rem;
+    }
+    &__text {
+      font-size: 1.2rem;
+    }
     &__border {
       left: auto;
       right: 100%;

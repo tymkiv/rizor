@@ -164,10 +164,12 @@
     font-size: 8rem;
     margin-top: 0;
     max-width: 65rem;
+    z-index: 20;
+    pointer-events: none;
   }
 
   .section--first .section__title span {
-    z-index: 20;
+    pointer-events: all;
     display: inline-block;
   }
 
@@ -202,6 +204,15 @@
   /* ----- END video-wrapper ----- */
 
   /* ----- BEGIN play-btn ----- */
+
+  .play-btn__icon {
+    width: 6.5rem;
+    height: 6.5rem;
+  }
+
+  .play-btn__text {
+    font-size: 1.2rem;
+  }
 
   .play-btn__border {
     left: auto;
