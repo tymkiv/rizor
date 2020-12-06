@@ -85,6 +85,7 @@
 
 /* ----- BEGIN video-wrapper ----- */
 .video-wrapper {
+  cursor: pointer;
   &:before {
     content: '';
     position: relative;
@@ -144,11 +145,11 @@
 
 /* ----- BEGIN play-btn ----- */
 .play-btn {
-  transition: 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
   &__icon {
     width: 5rem;
     height: 5rem;
-
+    
     svg {
       max-width: 100%;
       max-height: 100%;

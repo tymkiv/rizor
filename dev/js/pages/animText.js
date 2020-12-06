@@ -21,7 +21,6 @@ class AnimText {
   }
 
   mouse(e){
-    // console.dir(e);
     this.mouseX = e.pageX;
     this.mouseY = e.pageY;
   }
@@ -83,8 +82,8 @@ class Part {
     this.originalCenterY = this.textTop + this.particleTop + this.height/2;
 
     if(this.i == 7) {
-      console.log('this.textTop', this.textTop);
-      console.log('this.particleTop', this.particleTop);
+      // console.log('this.textTop', this.textTop);
+      // console.log('this.particleTop', this.particleTop);
     }
 
     this.offX = 0;
@@ -169,7 +168,7 @@ class Part {
 
     this.rotate = 0;
 
-    this.rotate =  this.speedY*5;
+    this.rotate =  this.speedY*5 * Math.floor((Math.random() * 1) + 1);
 
     this.particle.style.transform = `translate3d(${this.offX}px, ${this.offY}px, 0) rotate(${this.rotate}deg)`;
   }

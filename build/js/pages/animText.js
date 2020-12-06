@@ -32,7 +32,6 @@ var AnimText = /*#__PURE__*/function () {
   _createClass(AnimText, [{
     key: "mouse",
     value: function mouse(e) {
-      // console.dir(e);
       this.mouseX = e.pageX;
       this.mouseY = e.pageY;
     }
@@ -96,9 +95,8 @@ var Part = /*#__PURE__*/function () {
     this.originalCenterX = this.textLeft + this.particleLeft + this.width / 2;
     this.originalCenterY = this.textTop + this.particleTop + this.height / 2;
 
-    if (this.i == 7) {
-      console.log('this.textTop', this.textTop);
-      console.log('this.particleTop', this.particleTop);
+    if (this.i == 7) {// console.log('this.textTop', this.textTop);
+      // console.log('this.particleTop', this.particleTop);
     }
 
     this.offX = 0;
@@ -173,7 +171,7 @@ var Part = /*#__PURE__*/function () {
       this.offX += this.speedX;
       this.offY += this.speedY;
       this.rotate = 0;
-      this.rotate = this.speedY * 5;
+      this.rotate = this.speedY * 5 * Math.floor(Math.random() * 1 + 1);
       this.particle.style.transform = "translate3d(".concat(this.offX, "px, ").concat(this.offY, "px, 0) rotate(").concat(this.rotate, "deg)");
     }
   }, {

@@ -168,6 +168,10 @@
 
 /* ----- BEGIN video-wrapper ----- */
 
+.video-wrapper {
+  cursor: pointer;
+}
+
 .video-wrapper:before {
   content: '';
   position: relative;
@@ -233,9 +237,9 @@
 /* ----- BEGIN play-btn ----- */
 
 .play-btn {
-  -webkit-transition: 0.3s ease-in-out;
-  -o-transition: 0.3s ease-in-out;
-  transition: 0.3s ease-in-out;
+  -webkit-transition: opacity 0.3s ease-in-out;
+  -o-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
 }
 
 .play-btn__icon {
