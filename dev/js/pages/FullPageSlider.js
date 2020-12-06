@@ -59,9 +59,9 @@ class FullPageSlider {
         const factHeight = wrapper.offsetHeight;
         // console.dir(wrapper);
         const offset = factHeight - height;
-        // console.log('factHeight', factHeight);
-        // console.log('height', height);
-        // console.log('offset', offset);
+        console.log('factHeight', factHeight);
+        console.log('height', height);
+        console.log('offset', offset);
         // Если слайд больше высоты экрана
         if(offset > 0) {
           // Если слайд в самом начале, и мы скролим вверх

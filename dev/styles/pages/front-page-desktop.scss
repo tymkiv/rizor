@@ -276,7 +276,7 @@
   .section--advantages {
     .section__decor-text {
       display: block;
-      position: sticky;
+      position: absolute;
       font-family: 'RubikMonoOne', sans-serif;
       font-size: 17rem;
       line-height: 1em;
@@ -285,9 +285,9 @@
       transform-origin: bottom right;
       transform: translateY(-100%) rotate(-90deg);
       z-index: -1;
-      top: 0rem;
-      right: 0;
-      margin-right: 5rem;
+      top: 10rem;
+      right: 5rem;
+      
     }
     .section__wrapper {
       min-height: 100%;
