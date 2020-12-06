@@ -65,8 +65,14 @@ class Part {
     this.width = particle.offsetWidth;
     this.height = particle.offsetHeight;
     
-    this.textTop = this.text.getBoundingClientRect().top;
-    this.textLeft = this.text.getBoundingClientRect().left;
+    // this.textTop = this.text.getBoundingClientRect().top;
+    // this.textLeft = this.text.getBoundingClientRect().left;
+    this.textTop = $(this.text).offset().top;
+    this.textLeft = $(this.text).offset().left;
+
+    if(this.i == 0) {
+      console.log('this.textTop', this.textTop);
+    }
 
     // this.particleTop = this.particle.offsetTop;
     // this.particleLeft = this.particle.offsetLeft;
@@ -102,6 +108,8 @@ class Part {
     this.gravity = 0.01;
     this.maxGravity = 0.01 + Math.random()*0.05;
 
+    this.rotationCoof = Math.round(Math.random()) ? 1 : -1;
+  
     window.addEventListener('resize', this.onResizeHandler.bind(this));
   }
 
@@ -132,7 +140,7 @@ class Part {
     this.centerY = this.textTop + this.particleTop + this.height/2;
 
     if(this.i == 7) {
-      console.log('this.centerY', this.centerY);
+      // console.log('this.originalCenterY', this.originalCenterY);
       // console.log('this.textTop', this.textTop);
       // console.log('this.textTop', this.textTop);
     }
@@ -172,7 +180,7 @@ class Part {
 
     this.rotate = 0;
 
-    this.rotate =  this.speedY*5 * Math.floor((Math.random() * 1) + 1);
+    this.rotate =  this.speedY*5 * this.rotationCoof;
 
     this.particle.style.transform = `translate3d(${this.offX}px, ${this.offY}px, 0) rotate(${this.rotate}deg)`;
   }
@@ -183,6 +191,18 @@ class Part {
 
     // this.textTop = this.text.getBoundingClientRect().top;
     // this.textLeft = this.text.getBoundingClientRect().left;
+    this.textTop = $(this.text).offset().top;
+    this.textLeft = $(this.text).offset().left;
+
+    if(fullPageSlider.slider) {
+      for(let i = 0; i < fullPageSlider.slider.activeIndex; i++) {
+        this.textTop += fullPageSlider.slider.slides[i].offsetHeight;
+      }
+    }
+
+    if(this.i == 0) {
+      console.log('this.textTop', this.textTop);
+    }
 
     this.particleTop = this.particle.offsetTop;
     this.particleLeft = this.particle.offsetLeft;

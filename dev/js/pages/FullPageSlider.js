@@ -51,14 +51,17 @@ class FullPageSlider {
       elem: window,
       preventMouse: false,
       callback: e => {
+        // console.dir(e);
         const section = document.querySelectorAll('.full-page-slider__section')[this.slider.activeIndex];
         const wrapper = document.querySelectorAll('.full-page-slider__section .section__wrapper')[this.slider.activeIndex];
         
         const height = section.offsetHeight - +$(section).css('paddingTop').slice(0, -2) ;
-        const factHeight = wrapper.scrollHeight;
-
+        const factHeight = wrapper.offsetHeight;
+        // console.dir(wrapper);
         const offset = factHeight - height;
-
+        // console.log('factHeight', factHeight);
+        // console.log('height', height);
+        // console.log('offset', offset);
         // Если слайд больше высоты экрана
         if(offset > 0) {
           // Если слайд в самом начале, и мы скролим вверх

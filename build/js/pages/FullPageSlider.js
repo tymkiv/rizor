@@ -72,13 +72,18 @@ var FullPageSlider = /*#__PURE__*/function () {
         elem: window,
         preventMouse: false,
         callback: function callback(e) {
+          // console.dir(e);
           var section = document.querySelectorAll('.full-page-slider__section')[_this3.slider.activeIndex];
 
           var wrapper = document.querySelectorAll('.full-page-slider__section .section__wrapper')[_this3.slider.activeIndex];
 
           var height = section.offsetHeight - +$(section).css('paddingTop').slice(0, -2);
-          var factHeight = wrapper.scrollHeight;
-          var offset = factHeight - height; // Если слайд больше высоты экрана
+          var factHeight = wrapper.offsetHeight; // console.dir(wrapper);
+
+          var offset = factHeight - height; // console.log('factHeight', factHeight);
+          // console.log('height', height);
+          // console.log('offset', offset);
+          // Если слайд больше высоты экрана
 
           if (offset > 0) {
             // Если слайд в самом начале, и мы скролим вверх

@@ -81,10 +81,17 @@ var Part = /*#__PURE__*/function () {
     this.i = i;
     this.text = text;
     this.width = particle.offsetWidth;
-    this.height = particle.offsetHeight;
-    this.textTop = this.text.getBoundingClientRect().top;
-    this.textLeft = this.text.getBoundingClientRect().left; // this.particleTop = this.particle.offsetTop;
+    this.height = particle.offsetHeight; // this.textTop = this.text.getBoundingClientRect().top;
+    // this.textLeft = this.text.getBoundingClientRect().left;
+
+    this.textTop = $(this.text).offset().top;
+    this.textLeft = $(this.text).offset().left;
+
+    if (this.i == 0) {
+      console.log('this.textTop', this.textTop);
+    } // this.particleTop = this.particle.offsetTop;
     // this.particleLeft = this.particle.offsetLeft;
+
 
     this.particleTop = $(this.particle).position().top;
     this.particleLeft = $(this.particle).position().left; // this.top = particle.getBoundingClientRect().top;
@@ -109,6 +116,7 @@ var Part = /*#__PURE__*/function () {
     this.friction = 0.9;
     this.gravity = 0.01;
     this.maxGravity = 0.01 + Math.random() * 0.05;
+    this.rotationCoof = Math.round(Math.random()) ? 1 : -1;
     window.addEventListener('resize', this.onResizeHandler.bind(this));
   }
 
@@ -144,8 +152,8 @@ var Part = /*#__PURE__*/function () {
       this.centerX = this.textLeft + this.particleLeft + this.width / 2;
       this.centerY = this.textTop + this.particleTop + this.height / 2;
 
-      if (this.i == 7) {
-        console.log('this.centerY', this.centerY); // console.log('this.textTop', this.textTop);
+      if (this.i == 7) {// console.log('this.originalCenterY', this.originalCenterY);
+        // console.log('this.textTop', this.textTop);
         // console.log('this.textTop', this.textTop);
       } // this.top = this.particle.getBoundingClientRect().top;
       // this.left = this.particle.getBoundingClientRect().left;
@@ -175,7 +183,7 @@ var Part = /*#__PURE__*/function () {
       this.offX += this.speedX;
       this.offY += this.speedY;
       this.rotate = 0;
-      this.rotate = this.speedY * 5 * Math.floor(Math.random() * 1 + 1);
+      this.rotate = this.speedY * 5 * this.rotationCoof;
       this.particle.style.transform = "translate3d(".concat(this.offX, "px, ").concat(this.offY, "px, 0) rotate(").concat(this.rotate, "deg)");
     }
   }, {
@@ -184,6 +192,19 @@ var Part = /*#__PURE__*/function () {
       this.width = this.particle.offsetWidth;
       this.height = this.particle.offsetHeight; // this.textTop = this.text.getBoundingClientRect().top;
       // this.textLeft = this.text.getBoundingClientRect().left;
+
+      this.textTop = $(this.text).offset().top;
+      this.textLeft = $(this.text).offset().left;
+
+      if (fullPageSlider.slider) {
+        for (var i = 0; i < fullPageSlider.slider.activeIndex; i++) {
+          this.textTop += fullPageSlider.slider.slides[i].offsetHeight;
+        }
+      }
+
+      if (this.i == 0) {
+        console.log('this.textTop', this.textTop);
+      }
 
       this.particleTop = this.particle.offsetTop;
       this.particleLeft = this.particle.offsetLeft;

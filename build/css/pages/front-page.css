@@ -315,6 +315,10 @@
 
 /* ----- BEGIN section-advantages ----- */
 
+.section--advantages .section__decor-text {
+  display: none;
+}
+
 .section--advantages .section__text-wrapper {
   margin-top: 4rem;
   max-width: 30rem;
@@ -409,6 +413,10 @@
   margin-right: auto;
 }
 
+.color-slider__border {
+  display: none;
+}
+
 .color-slider .gallery-thumbs {
   margin-bottom: 3.5rem;
   width: 27rem;
@@ -417,11 +425,18 @@
   margin-right: 0;
   padding-bottom: 6rem;
   margin-bottom: -3rem;
+  overflow: visible;
 }
 
 .color-slider .gallery-thumbs .swiper-slide {
   width: 2rem;
   height: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   cursor: pointer;
 }
 
@@ -469,6 +484,8 @@
   width: 2rem;
   height: 2rem;
   border-radius: 50%;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
 }
 
 .color-slider .gallery-thumbs .swiper-slide .round--green {

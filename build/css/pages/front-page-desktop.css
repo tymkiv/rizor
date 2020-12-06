@@ -194,7 +194,7 @@
   }
 
   .speller-check {
-    font-size: 8rem;
+    font-size: 6rem;
     font-family: 'RubikMonoOne', sans-serif;
     max-width: 65rem;
   }
@@ -250,7 +250,7 @@
   }
 
   .section--first .section__title {
-    font-size: 8rem;
+    font-size: 7rem;
     margin-top: 0;
     max-width: 65rem;
     z-index: 20;
@@ -348,7 +348,43 @@
 
   /* ----- END play-btn ----- */
 
+  /* ----- BEGIN list ----- */
+
+  .list {
+    padding: 0;
+  }
+
+  .list__item {
+    font-size: 1.8rem;
+  }
+
+  .list__item:not(:last-child) {
+    margin-bottom: 3.5rem;
+  }
+
+  /* ----- END list ----- */
+
   /* ----- BEGIN section-advantages ----- */
+
+  .section--advantages .section__decor-text {
+    display: block;
+    position: sticky;
+    font-family: 'RubikMonoOne', sans-serif;
+    font-size: 17rem;
+    line-height: 1em;
+    color: rgba(204, 204, 204, 0.2);
+    text-align: right;
+    -webkit-transform-origin: bottom right;
+    -ms-transform-origin: bottom right;
+    transform-origin: bottom right;
+    -webkit-transform: translateY(-100%) rotate(-90deg);
+    -ms-transform: translateY(-100%) rotate(-90deg);
+    transform: translateY(-100%) rotate(-90deg);
+    z-index: -1;
+    top: 0rem;
+    right: 0;
+    margin-right: 5rem;
+  }
 
   .section--advantages .section__wrapper {
     min-height: 100%;
@@ -366,10 +402,7 @@
 
   .section--advantages .video-wrapper {
     position: absolute;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
+    top: 10rem;
     margin-top: -5rem;
     left: 0;
     width: 40%;
@@ -382,20 +415,72 @@
   }
 
   .section--advantages .section__text-wrapper {
-    margin-top: 25%;
-    -ms-flex-preferred-size: 30%;
-    flex-basis: 30%;
-    width: 30%;
+    margin-top: 15rem;
+    -ms-flex-preferred-size: 25%;
+    flex-basis: 25%;
+    width: 25%;
   }
 
   .section--advantages .color-slider {
-    margin-top: 45%;
-    -ms-flex-preferred-size: 30%;
-    flex-basis: 30%;
-    width: 30%;
+    margin-top: 45rem;
+    -ms-flex-preferred-size: 35%;
+    flex-basis: 35%;
+    width: 35%;
     margin-left: 0;
+    margin-right: 0;
+    padding: 0 2rem;
+  }
+
+  .section--advantages .color-slider .section__title {
+    width: 27rem;
+    max-width: 70%;
+    margin-left: auto;
     margin-right: 0;
   }
 
+  .section--advantages .color-slider .section__sub-title {
+    width: 27rem;
+    max-width: 70%;
+    margin-left: auto;
+    margin-right: 0;
+  }
+
+  .section--advantages .section__sup-title {
+    font-size: 2rem;
+    margin-bottom: 8rem;
+  }
+
+  .section--advantages .section__title {
+    font-size: 4rem;
+    margin-bottom: 5rem;
+  }
+
+  .section--advantages .section__sub-title {
+    font-size: 1.8rem;
+    margin-bottom: 4rem;
+  }
+
   /* ----- END section-advantages ----- */
+
+  /* ----- BEGIN color-slider ----- */
+
+  .color-slider__border {
+    position: absolute;
+    display: block;
+    top: 50%;
+    right: 100%;
+    margin-right: 4rem;
+  }
+
+  /* ----- END color-slider ----- */
+}
+
+@media only screen and (min-width: 968px) and (min-width: 1440px) {
+  .speller-check {
+    font-size: 8rem;
+  }
+
+  .section--first .section__title {
+    font-size: 8rem;
+  }
 }
