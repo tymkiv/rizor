@@ -27,6 +27,16 @@ class FullPageSlider {
         type: 'bullets',
         clickable: true,
       },
+      on: {
+        transitionStart:  (e)=> {
+          if(this.slider.previousIndex == 0) {
+            AT.updateOriginalCoords(-_g.clientH/2, 0.5);
+          }
+          if(this.slider.activeIndex == 0) {
+            AT.updateOriginalCoords(_g.clientH/2, 0.5);
+          }
+        },
+      },
     })
   }
 
@@ -70,16 +80,10 @@ class FullPageSlider {
   }
 
   onSlideDown(){
-    if(this.slider.activeIndex == 0) {
-      AT.updateOriginalCoords(-_g.clientH/2, 0.5);
-    }
     this.slider.slideNext();
   }
 
   onSlideUp(){
-    if(this.slider.activeIndex == 1) {
-      AT.updateOriginalCoords(_g.clientH/2, 0.5);
-    }
     this.slider.slidePrev();
   }
 

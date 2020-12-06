@@ -33,6 +33,8 @@ var FullPageSlider = /*#__PURE__*/function () {
   }, {
     key: "createSlider",
     value: function createSlider() {
+      var _this2 = this;
+
       return new Swiper('.full-page-slider', {
         speed: 800,
         direction: 'vertical',
@@ -41,6 +43,17 @@ var FullPageSlider = /*#__PURE__*/function () {
           el: '.full-page-slider__pagination',
           type: 'bullets',
           clickable: true
+        },
+        on: {
+          transitionStart: function transitionStart(e) {
+            if (_this2.slider.previousIndex == 0) {
+              AT.updateOriginalCoords(-_g.clientH / 2, 0.5);
+            }
+
+            if (_this2.slider.activeIndex == 0) {
+              AT.updateOriginalCoords(_g.clientH / 2, 0.5);
+            }
+          }
         }
       });
     } // Метод, возвращающий индикатор скролла
@@ -49,15 +62,15 @@ var FullPageSlider = /*#__PURE__*/function () {
   }, {
     key: "createIndicator",
     value: function createIndicator() {
-      var _this2 = this;
+      var _this3 = this;
 
       return new WheelIndicator({
         elem: window,
         preventMouse: false,
         callback: function callback(e) {
-          var section = document.querySelectorAll('.full-page-slider__section')[_this2.slider.activeIndex];
+          var section = document.querySelectorAll('.full-page-slider__section')[_this3.slider.activeIndex];
 
-          var wrapper = document.querySelectorAll('.full-page-slider__section .section__wrapper')[_this2.slider.activeIndex];
+          var wrapper = document.querySelectorAll('.full-page-slider__section .section__wrapper')[_this3.slider.activeIndex];
 
           var height = section.offsetHeight;
           var factHeight = wrapper.scrollHeight;
@@ -66,21 +79,21 @@ var FullPageSlider = /*#__PURE__*/function () {
           if (offset > 0) {
             // Если слайд в самом начале, и мы скролим вверх
             if (section.scrollTop == 0 && e.direction == 'up') {
-              _this2.onSlideUp();
+              _this3.onSlideUp();
             } // Если слайд в самом конце, и мы скролим вниз
 
 
             if (section.scrollTop >= offset && e.direction == 'down') {
-              _this2.onSlideDown();
+              _this3.onSlideDown();
             }
           } // Если слайд не больше высоты экрана (стандартный)
           else {
               if (e.direction == 'up') {
-                _this2.onSlideUp();
+                _this3.onSlideUp();
               }
 
               if (e.direction == 'down') {
-                _this2.onSlideDown();
+                _this3.onSlideDown();
               }
             }
         }
@@ -89,19 +102,11 @@ var FullPageSlider = /*#__PURE__*/function () {
   }, {
     key: "onSlideDown",
     value: function onSlideDown() {
-      if (this.slider.activeIndex == 0) {
-        AT.updateOriginalCoords(-_g.clientH / 2, 0.5);
-      }
-
       this.slider.slideNext();
     }
   }, {
     key: "onSlideUp",
     value: function onSlideUp() {
-      if (this.slider.activeIndex == 1) {
-        AT.updateOriginalCoords(_g.clientH / 2, 0.5);
-      }
-
       this.slider.slidePrev();
     } // Обработчик события ресайза
 

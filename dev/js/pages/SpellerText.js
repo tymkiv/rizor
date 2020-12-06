@@ -21,9 +21,9 @@ class SpellerText {
       span.innerHTML = letter;
       if(letter == ' ') {
         const br = document.createElement('br');
-        this.textNode.append(br);
+        this.textNode.appendChild(br);
       } else {
-        this.textNode.append(span);
+        this.textNode.appendChild(span);
       }
       
     });

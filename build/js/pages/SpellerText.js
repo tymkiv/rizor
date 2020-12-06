@@ -22,9 +22,9 @@ var SpellerText = function SpellerText(textNode) {
     if (letter == ' ') {
       var br = document.createElement('br');
 
-      _this.textNode.append(br);
+      _this.textNode.appendChild(br);
     } else {
-      _this.textNode.append(span);
+      _this.textNode.appendChild(span);
     }
   });
 };
