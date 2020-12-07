@@ -71,7 +71,7 @@ class Part {
     this.textLeft = $(this.text).offset().left;
 
     if(this.i == 0) {
-      console.log('this.textTop', this.textTop);
+      // console.log('this.textTop', this.textTop);
     }
 
     // this.particleTop = this.particle.offsetTop;
@@ -201,7 +201,7 @@ class Part {
     }
 
     if(this.i == 0) {
-      console.log('this.textTop', this.textTop);
+      // console.log('this.textTop', this.textTop);
     }
 
     this.particleTop = this.particle.offsetTop;

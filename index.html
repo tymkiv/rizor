@@ -112,8 +112,8 @@
                 </span> 
                 <div class="play-btn__border">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 100" width="20" height="100">
-                    <path d="M 1 99 L 19 99 L 19 1" stroke-width="1" stroke="#000" fill="none"></path>
-                    <circle cx="1" cy="99" r="1" fill="#000"/>
+                    <path d="M 1 99 L 19 99 L 19 1" stroke-width="1" stroke="rgba(0,0,0,0.3)" fill="none"></path>
+                    <circle cx="1" cy="99" r="1" fill="rgba(0,0,0,0.3)"/>
                   </svg>
                 </div>
               </div>
@@ -216,8 +216,8 @@
                 Цвет 
                 <div class="color-slider__border">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 290" width="20" height="290">
-                    <path d="M 19 1 L 2 1 L 2 289" stroke-width="1" stroke="rgba(0,0,0,0.3)" fill="none"></path>
-                    <circle cx="2" cy="288" r="2" fill="rgba(0,0,0,0.3)"/>
+                    <path d="M 19 0 L 0 0 L 0 289" stroke-width="1" stroke="rgba(0,0,0,0.3)" fill="none"></path>
+                    <!-- <circle cx="2" cy="288" r="2" fill="rgba(0,0,0,0.3)"/> -->
                   </svg>
                 </div>
               </h2>
@@ -302,9 +302,80 @@
       <!-- END section 1 -->
 
       <!-- BEGIN section 2 -->
-      <section class="full-page-slider__section swiper-slide section">
+      <section class="full-page-slider__section swiper-slide section section--specification">
         <div class="section__wrapper">
-          
+          <div class="container">
+            <!-- BEGIN text-wrapper -->
+            <div class="section__text-wrapper">
+              <h2 class="section__title"> Режимы </h2>
+              <div class="section__sub-title-wrapper">
+                <p class="section__sub-title"> Помимо "умной" подсветки, <strong> Hovertax 4.0 </strong> снабжён двумя скоростными режимами. </p>
+              </div>
+              <ul class="section__list list">
+                <li class="list__item"> Один для пробвинутых пользователей </li>
+                <li class="list__item"> Второй для новичков </li>
+              </ul>
+              <div class="section__important-info-wrap">
+                <div class="important-info">
+                  <h5 class="important-info__title"> 13<sub>км/ч</sub> </h5>
+                  <p class="important-info__text"> Максимальная скорость </p>
+                </div>
+                <div class="important-info">
+                  <h5 class="important-info__title"> 2 </h5>
+                  <p class="important-info__text"> Скоростных режима </p>
+                </div>
+              </div>
+            </div>
+            <!-- END text-wrapper -->
+            <!-- BEGIN video-wrapper -->
+            <div class="section__video-wrapper video-wrapper">
+              <div class="video-wrapper__play-btn play-btn">
+                <div class="play-btn__icon">
+                  <svg width="187" height="206" viewBox="0 0 187 206" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g filter="url(#filter0_d)">
+                    <path d="M44.6187 8.13554C27.7092 -1.56402 14 6.38198 14 25.8692V169.677C14 189.183 27.7092 197.119 44.6187 187.429L170.314 115.343C187.229 105.641 187.229 89.9202 170.314 80.2195L44.6187 8.13554Z" fill="#3A30F8"/>
+                    </g>
+                    <defs>
+                    <filter id="filter0_d" x="0" y="0" width="187" height="205.56" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                    <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+                    <feOffset dx="-5" dy="5"/>
+                    <feGaussianBlur stdDeviation="4.5"/>
+                    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.35 0"/>
+                    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+                    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+                    </filter>
+                    </defs>
+                  </svg>  
+                </div>
+                <div class="play-btn__text">
+                  <span class="play-btn__text-inner">
+                    Смотреть видео 
+                  </span> 
+                  <div class="play-btn__border">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 100" width="20" height="100">
+                      <path d="M 1 99 L 19 99 L 19 1" stroke-width="1" stroke="#000" fill="none"></path>
+                      <circle cx="1" cy="99" r="1" fill="#000"/>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+
+              <div class="video-wrapper__poster img-wrap img-wrap--cover">
+                <picture>
+                  <!-- <source srcset=""> --> 
+                  <img src="./build/images/content/poster-3.jpg" alt="Rizor poster-1">
+                </picture>
+              </div>
+              <video class="video-wrapper__video" controls="controls">
+                <!-- <source src="video/duel.ogv" type='video/ogg; codecs="theora, vorbis"'>
+                <source src="video/duel.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+                <source src="video/duel.webm" type='video/webm; codecs="vp8, vorbis"'> -->
+                <source src="./1.mov" data-src="./1.mov">
+              </video>
+            </div>
+            <!-- END video-wrapper -->
+          </div>
         </div>
       </section>
       <!-- END section 2 -->

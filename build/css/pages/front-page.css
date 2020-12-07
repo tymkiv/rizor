@@ -532,3 +532,63 @@
 }
 
 /* ----- END color-slider ----- */
+
+/* ----- BEGIN section--specification----- */
+
+.section--specification .section__title {
+  font-size: 2.6rem;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+}
+
+.section--specification .section__sub-title {
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 1.5em;
+  text-transform: initial;
+  margin-bottom: 3rem;
+}
+
+.section--specification .section__important-info-wrap {
+  margin-top: 5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 5rem;
+}
+
+.section--specification .important-info:not(:last-child) {
+  margin-right: 4rem;
+}
+
+.section--specification .video-wrapper {
+  margin-left: -1.5rem;
+  margin-right: -1.5rem;
+}
+
+.section--specification .video-wrapper .play-btn__border {
+  display: none;
+}
+
+/* ----- END section--specification----- */
+
+/* ----- BEGIN important-info----- */
+
+.important-info__title {
+  font-family: 'RubikMonoOne', sans-serif;
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 1.5em;
+  color: #3a30f8;
+}
+
+.important-info__text {
+  font-size: 1.4rem;
+  line-height: 1.5em;
+  color: #666666;
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
+}
+
+/* ----- END important-info----- */

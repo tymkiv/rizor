@@ -138,18 +138,10 @@ small {
 
 sub,
 sup {
-  font-size: 75%;
+  font-size: 40%;
   line-height: 0;
   position: relative;
   vertical-align: baseline;
-}
-
-sub {
-  bottom: -0.25em;
-}
-
-sup {
-  top: -0.5em;
 }
 
 /* Embedded content
@@ -1228,7 +1220,6 @@ button.swiper-pagination-bullet {
   margin: 0;
   padding: 0;
   outline: none;
-  font-family: 'Roboto', sans-serif;
 }
 
 * {
@@ -1237,6 +1228,7 @@ button.swiper-pagination-bullet {
 
 html {
   font-size: 10px;
+  font-family: 'Roboto', sans-serif;
 }
 
 .img-wrap img {

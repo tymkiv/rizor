@@ -80,10 +80,10 @@ var FullPageSlider = /*#__PURE__*/function () {
           var height = section.offsetHeight - +$(section).css('paddingTop').slice(0, -2);
           var factHeight = wrapper.offsetHeight; // console.dir(wrapper);
 
-          var offset = factHeight - height;
-          console.log('factHeight', factHeight);
-          console.log('height', height);
-          console.log('offset', offset); // Если слайд больше высоты экрана
+          var offset = factHeight - height; // console.log('factHeight', factHeight);
+          // console.log('height', height);
+          // console.log('offset', offset);
+          // Если слайд больше высоты экрана
 
           if (offset > 0) {
             // Если слайд в самом начале, и мы скролим вверх

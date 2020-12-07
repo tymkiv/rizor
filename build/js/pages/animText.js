@@ -87,7 +87,8 @@ var Part = /*#__PURE__*/function () {
     this.textTop = $(this.text).offset().top;
     this.textLeft = $(this.text).offset().left;
 
-    if (this.i == 0) {// console.log('this.textTop', this.textTop);
+    if (this.i == 0) {
+      console.log('this.textTop', this.textTop);
     } // this.particleTop = this.particle.offsetTop;
     // this.particleLeft = this.particle.offsetLeft;
 
@@ -201,7 +202,8 @@ var Part = /*#__PURE__*/function () {
         }
       }
 
-      if (this.i == 0) {// console.log('this.textTop', this.textTop);
+      if (this.i == 0) {
+        console.log('this.textTop', this.textTop);
       }
 
       this.particleTop = this.particle.offsetTop;
