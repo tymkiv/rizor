@@ -7,7 +7,9 @@ $(function () {
   });
   
   setTimeout(() => {
-    movePlayBtnForSec1();
+    // movePlayBtnForSec1();
+    setHeightForPlayBtnBorderForSec1.updateHeight();
+    setHeightForPlayBtnBorderForSec4.updateHeight();
     new SpellerText(document.querySelector('.section--first .section__title'));
     AT = new AnimText(document.querySelector('.section--first .section__title'));
 
@@ -23,75 +25,82 @@ $(function () {
       document.querySelector('.section--advantages .section__video-wrapper .play-btn__icon'),
     );
 
-  }, 100);
+    new MovePlayBtnOnVideo(
+      document.querySelector('.section--specification .section__video-wrapper'), 
+      document.querySelector('.section--specification .section__video-wrapper .video-wrapper__play-btn'),
+      document.querySelector('.section--specification .section__video-wrapper .play-btn__icon'),
+    );
+
+  }, 300);
 
   new ColorSlider('.section--advantages .gallery-thumbs', '.section--advantages .gallery-top');
   
 
 
   window.addEventListener('resize', () => {
-    movePlayBtnForSec1();
+    // movePlayBtnForSec1();
+    setHeightForPlayBtnBorderForSec1.updateHeight();
+    setHeightForPlayBtnBorderForSec4.updateHeight();
   })
 
 
-  
-
-});
-
-// Двигаю кнопку play туда куда нужно
-function movePlayBtnForSec1() {
-    const height = document.querySelector('.section--first .section__text-wrapper').offsetHeight;
-    const play_btn_node = document.querySelector('.section--first .video-wrapper__play-btn');
-  if(_g.isDesktop) {
-    play_btn_node.style.marginTop = -height/2 + 'px'; 
-  } else {
-    play_btn_node.style.marginTop = ''; 
+  //Задаю нужную длину для бордера (костыль)
+  // Использую обьект, для хранения внутреннего состояния
+  const setHeightForPlayBtnBorderForSec4 = {
+    playBtn: document.querySelector('.section--specification .video-wrapper .play-btn'),
+    anchorText: document.querySelector('#anchor-for-specification-blay-btn-border'),
+    svg: document.querySelector('.section--specification .video-wrapper .play-btn .play-btn__border svg'),
+    path: document.querySelector('.section--specification .video-wrapper .play-btn .play-btn__border svg path'),
+    borderHeight: 490,
   }
-}
+  setHeightForPlayBtnBorderForSec4.updateHeight = () => {
+    const that = setHeightForPlayBtnBorderForSec4;
+    
+    const searchRegExp = new RegExp(`${that.borderHeight}`, 'g');
 
-class ColorSlider{
-  constructor(thumb_selector, top_selector){
-    this.thumb_selector = thumb_selector;
-    this.top_selector = top_selector;
+    that.borderHeight = $(that.playBtn).offset().top - $(that.anchorText).offset().top - that.anchorText.offsetHeight/2 - 10;
+    
+    that.svg.setAttribute('viewBox', `0 0 ${that.borderHeight} 160`);
+    that.svg.setAttribute('width', that.borderHeight);
 
-    this.init();
-
-    window.addEventListener('resize', this.onResizeHandler.bind(this));
+    const newD = that.path.getAttribute('d').replace(searchRegExp, that.borderHeight);
+    that.path.setAttribute('d', newD);
   }
 
-  init(lastActiveIndex){
-    this.galleryThumbs = new Swiper(this.thumb_selector, {
-      spaceBetween: 25,
-      slidesPerView: 5,
-      freeMode: true,
-      // centeredSlides: true,
-      watchSlidesVisibility: true,
-      watchSlidesProgress: true,
-    });
-    this.galleryTop = new Swiper(this.top_selector, {
-      spaceBetween: 10,
-      
-      thumbs: {
-        swiper: this.galleryThumbs
-      }
-    });
-    if(lastActiveIndex) {
-      this.galleryTop.slideTo(lastActiveIndex, 0);
+  const setHeightForPlayBtnBorderForSec1 = {
+    playBtn: document.querySelector('.section--first .video-wrapper .play-btn'),
+    anchorText: document.querySelector('#anchor-for-first-blay-btn-border'),
+    border: document.querySelector('.section--first .video-wrapper .play-btn .play-btn__border'),
+    svg: document.querySelector('.section--first .video-wrapper .play-btn .play-btn__border svg'),
+    path: document.querySelector('.section--first .video-wrapper .play-btn .play-btn__border svg path'),
+    borderHeight: 20,
+  }
+  setHeightForPlayBtnBorderForSec1.updateHeight = () => {
+    if(_g.isDesktop) {
+      const that = setHeightForPlayBtnBorderForSec1;
+    
+      const searchRegExp = new RegExp(`${that.borderHeight-1}`, 'g');
+      // console.log(searchRegExp);
+      that.borderHeight = Math.abs($(that.playBtn).offset().top - $(that.anchorText).offset().top) - that.anchorText.offsetHeight/2 + 25;
+      console.log(that.borderHeight);
+      that.border.style.width = that.borderHeight + 'px';
+      that.svg.setAttribute('viewBox', `0 0 ${that.borderHeight} 100`);
+      that.svg.setAttribute('width', that.borderHeight);
+
+      const newD = that.path.getAttribute('d').replace(searchRegExp, that.borderHeight-1);
+      that.path.setAttribute('d', newD);
     }
     
   }
+});
 
-  onResizeHandler(){
-    if(this.galleryThumbs && this.galleryTop) {
-      this.lastActiveIndex = this.galleryTop.activeIndex;
-      this.galleryTop.destroy();
-      this.galleryThumbs.destroy();
-    }
-
-    this.init(this.lastActiveIndex);
-  }
+// Двигаю кнопку play туда куда нужно (костыль)
+function movePlayBtnForSec1() {
+  //   const height = document.querySelector('.section--first .section__text-wrapper').offsetHeight;
+  //   const play_btn_node = document.querySelector('.section--first .video-wrapper__play-btn');
+  // if(_g.isDesktop) {
+  //   play_btn_node.style.marginTop = -height/2 + 'px'; 
+  // } else {
+  //   play_btn_node.style.marginTop = ''; 
+  // }
 }
-
-
-
-

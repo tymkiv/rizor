@@ -1,11 +1,5 @@
 "use strict";
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
 var AT, fullPageSlider;
 $(function () {
   fullPageSlider = new FullPageSlider();
@@ -13,73 +7,71 @@ $(function () {
     new VideoChanger(video_wrapper);
   });
   setTimeout(function () {
-    movePlayBtnForSec1();
+    // movePlayBtnForSec1();
+    setHeightForPlayBtnBorderForSec1.updateHeight();
+    setHeightForPlayBtnBorderForSec4.updateHeight();
     new SpellerText(document.querySelector('.section--first .section__title'));
     AT = new AnimText(document.querySelector('.section--first .section__title'));
     new MovePlayBtnOnVideo(document.querySelector('.section--first .section__video-wrapper'), document.querySelector('.section--first .section__video-wrapper .video-wrapper__play-btn'), document.querySelector('.section--first .section__video-wrapper .play-btn__icon'));
     new MovePlayBtnOnVideo(document.querySelector('.section--advantages .section__video-wrapper'), document.querySelector('.section--advantages .section__video-wrapper .video-wrapper__play-btn'), document.querySelector('.section--advantages .section__video-wrapper .play-btn__icon'));
-  }, 100);
+    new MovePlayBtnOnVideo(document.querySelector('.section--specification .section__video-wrapper'), document.querySelector('.section--specification .section__video-wrapper .video-wrapper__play-btn'), document.querySelector('.section--specification .section__video-wrapper .play-btn__icon'));
+  }, 300);
   new ColorSlider('.section--advantages .gallery-thumbs', '.section--advantages .gallery-top');
   window.addEventListener('resize', function () {
-    movePlayBtnForSec1();
-  });
-}); // Двигаю кнопку play туда куда нужно
+    // movePlayBtnForSec1();
+    setHeightForPlayBtnBorderForSec1.updateHeight();
+    setHeightForPlayBtnBorderForSec4.updateHeight();
+  }); //Задаю нужную длину для бордера (костыль)
+  // Использую обьект, для хранения внутреннего состояния
 
-function movePlayBtnForSec1() {
-  var height = document.querySelector('.section--first .section__text-wrapper').offsetHeight;
-  var play_btn_node = document.querySelector('.section--first .video-wrapper__play-btn');
+  var setHeightForPlayBtnBorderForSec4 = {
+    playBtn: document.querySelector('.section--specification .video-wrapper .play-btn'),
+    anchorText: document.querySelector('#anchor-for-specification-blay-btn-border'),
+    svg: document.querySelector('.section--specification .video-wrapper .play-btn .play-btn__border svg'),
+    path: document.querySelector('.section--specification .video-wrapper .play-btn .play-btn__border svg path'),
+    borderHeight: 490
+  };
 
-  if (_g.isDesktop) {
-    play_btn_node.style.marginTop = -height / 2 + 'px';
-  } else {
-    play_btn_node.style.marginTop = '';
-  }
+  setHeightForPlayBtnBorderForSec4.updateHeight = function () {
+    var that = setHeightForPlayBtnBorderForSec4;
+    var searchRegExp = new RegExp("".concat(that.borderHeight), 'g');
+    that.borderHeight = $(that.playBtn).offset().top - $(that.anchorText).offset().top - that.anchorText.offsetHeight / 2 - 10;
+    that.svg.setAttribute('viewBox', "0 0 ".concat(that.borderHeight, " 160"));
+    that.svg.setAttribute('width', that.borderHeight);
+    var newD = that.path.getAttribute('d').replace(searchRegExp, that.borderHeight);
+    that.path.setAttribute('d', newD);
+  };
+
+  var setHeightForPlayBtnBorderForSec1 = {
+    playBtn: document.querySelector('.section--first .video-wrapper .play-btn'),
+    anchorText: document.querySelector('#anchor-for-first-blay-btn-border'),
+    border: document.querySelector('.section--first .video-wrapper .play-btn .play-btn__border'),
+    svg: document.querySelector('.section--first .video-wrapper .play-btn .play-btn__border svg'),
+    path: document.querySelector('.section--first .video-wrapper .play-btn .play-btn__border svg path'),
+    borderHeight: 20
+  };
+
+  setHeightForPlayBtnBorderForSec1.updateHeight = function () {
+    if (_g.isDesktop) {
+      var that = setHeightForPlayBtnBorderForSec1;
+      var searchRegExp = new RegExp("".concat(that.borderHeight - 1), 'g'); // console.log(searchRegExp);
+
+      that.borderHeight = Math.abs($(that.playBtn).offset().top - $(that.anchorText).offset().top) - that.anchorText.offsetHeight / 2 + 25;
+      console.log(that.borderHeight);
+      that.border.style.width = that.borderHeight + 'px';
+      that.svg.setAttribute('viewBox', "0 0 ".concat(that.borderHeight, " 100"));
+      that.svg.setAttribute('width', that.borderHeight);
+      var newD = that.path.getAttribute('d').replace(searchRegExp, that.borderHeight - 1);
+      that.path.setAttribute('d', newD);
+    }
+  };
+}); // Двигаю кнопку play туда куда нужно (костыль)
+
+function movePlayBtnForSec1() {//   const height = document.querySelector('.section--first .section__text-wrapper').offsetHeight;
+  //   const play_btn_node = document.querySelector('.section--first .video-wrapper__play-btn');
+  // if(_g.isDesktop) {
+  //   play_btn_node.style.marginTop = -height/2 + 'px'; 
+  // } else {
+  //   play_btn_node.style.marginTop = ''; 
+  // }
 }
-
-var ColorSlider = /*#__PURE__*/function () {
-  function ColorSlider(thumb_selector, top_selector) {
-    _classCallCheck(this, ColorSlider);
-
-    this.thumb_selector = thumb_selector;
-    this.top_selector = top_selector;
-    this.init();
-    window.addEventListener('resize', this.onResizeHandler.bind(this));
-  }
-
-  _createClass(ColorSlider, [{
-    key: "init",
-    value: function init(lastActiveIndex) {
-      this.galleryThumbs = new Swiper(this.thumb_selector, {
-        spaceBetween: 25,
-        slidesPerView: 5,
-        freeMode: true,
-        // centeredSlides: true,
-        watchSlidesVisibility: true,
-        watchSlidesProgress: true
-      });
-      this.galleryTop = new Swiper(this.top_selector, {
-        spaceBetween: 10,
-        thumbs: {
-          swiper: this.galleryThumbs
-        }
-      });
-
-      if (lastActiveIndex) {
-        this.galleryTop.slideTo(lastActiveIndex, 0);
-      }
-    }
-  }, {
-    key: "onResizeHandler",
-    value: function onResizeHandler() {
-      if (this.galleryThumbs && this.galleryTop) {
-        this.lastActiveIndex = this.galleryTop.activeIndex;
-        this.galleryTop.destroy();
-        this.galleryThumbs.destroy();
-      }
-
-      this.init(this.lastActiveIndex);
-    }
-  }]);
-
-  return ColorSlider;
-}();

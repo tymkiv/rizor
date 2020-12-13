@@ -1,1 +1,21 @@
 @import '../../core.scss';
+
+@include minw( 968px ) { 
+  .btn {
+    font-size: 1.6rem;
+
+    transition: 0.3s ease-in-out;
+    &:before {
+      transition: 0.3s ease-in-out;
+    }
+
+    &:hover {
+      background-color: transparent;
+      color: #fff;
+
+      &:before {
+        opacity: 0;
+      }
+    }
+  }
+}

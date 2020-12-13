@@ -187,6 +187,28 @@
 }
 
 @media only screen and (min-width: 968px) {
+  .btn {
+    font-size: 1.6rem;
+    -webkit-transition: 0.3s ease-in-out;
+    -o-transition: 0.3s ease-in-out;
+    transition: 0.3s ease-in-out;
+  }
+
+  .btn:before {
+    -webkit-transition: 0.3s ease-in-out;
+    -o-transition: 0.3s ease-in-out;
+    transition: 0.3s ease-in-out;
+  }
+
+  .btn:hover {
+    background-color: transparent;
+    color: #fff;
+  }
+
+  .btn:hover:before {
+    opacity: 0;
+  }
+
   /* -- BEGIN HEADER -- */
 
   .header {
@@ -201,6 +223,7 @@
     background: transparent;
     -webkit-box-shadow: none;
     box-shadow: none;
+    padding: 0 5rem;
   }
 
   .header__logo {

@@ -94,7 +94,7 @@
   .speller-check {
     font-size: 6rem;
     font-family: 'RubikMonoOne', sans-serif;
-    max-width: 65rem;
+    // max-width: 65rem;
 
     @include minw(1440px) {
       font-size: 8rem;
@@ -162,7 +162,7 @@
     .section__title {
       font-size: 7rem;
       margin-top: 0;
-      max-width: 65rem;
+      max-width: none;
       z-index: 20;
       pointer-events: none;
       @include minw(1440px) {
@@ -192,7 +192,7 @@
   .video-wrapper {
     
     &__play-btn {
-      top: 50%;
+      top: 5rem;
       right: 100%;
       padding-right: 2rem;
       transform: translateX(50%);
@@ -331,7 +331,8 @@
       width: 30%;
       width: calc( (60vw - (100vw - 100%)/2)/2 );
       max-width: none;
-      padding: 0 2rem;
+      padding-left: 7rem;
+      padding-right: 0;
     }
     .color-slider {
       margin-top: 45rem;
@@ -403,6 +404,10 @@
   .section--specification {
     .section__wrapper {
       min-height: 100%;
+      background-image: url('../../images/content/decor-1.png');
+      background-position: left top;
+      background-size: contain;
+      background-repeat: no-repeat;
     }
     .container {
       position: static;
@@ -410,6 +415,9 @@
       min-height: 100%;
       display: flex;
       flex-direction: column;
+    }
+    .section__text-wrapper {
+      margin-top: 10rem;
     }
     .video-wrapper {
       position: absolute;
@@ -427,10 +435,31 @@
         padding-top: Min(80%, 80vh);
         padding-top: Min(80%, calc(100vh - 20rem));
       }
+
+      .play-btn {
+        top: 80%;
+      }
+
+      .play-btn__border {
+        display: block;
+        width: auto;
+        height: auto;
+        transform: none;
+        left: 100%;
+        right: auto;
+        svg {
+          position: relative;
+          path {
+            stroke-dasharray: 750;
+          }
+          
+        }
+      }
     }
     .section__text-wrapper {
       width: 40%;
       width: calc( 45vw - (100vw - 100%)/2 );
+      padding-right: 8rem;
     }
     .section__title {
       font-size: 4rem;
@@ -443,19 +472,113 @@
     .section__list {
       margin-bottom: 8rem;
     }
+    
+
 
 
   }
   /* ----- END section--specification----- */
 
   /* ----- BEGIN important-info----- */
-.important-info {
-  &__title {
-    font-size: 6rem;   
+  .important-info {
+    &__title {
+      font-size: 6rem;   
+    }
+    &__text {
+      font-size: 1.6rem;
+    }
   }
-  &__text {
-    font-size: 1.6rem;
+  /* ----- END important-info----- */
+
+
+
+  /* ----- BEGIN section--for-whom----- */
+  .section--for-whom {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow: hidden;
+    .section__wrapper {
+      // min-height: 100%;
+      display: flex;
+      flex-direction: column;
+
+      &:before {
+        content: '';
+        position: absolute;
+        top: -1rem;
+        left: 0;right: 0;
+        bottom: -1rem;
+        background-image: url('../../images/content/decor-1.png');
+        background-position: left top;
+        background-size: contain;
+        background-repeat: no-repeat;
+        opacity: 0.05;
+      }
+      
+    }
+
+    .footer {
+      margin-top: auto;
+    }
+    
+    .container {
+      display: flex;
+      position: static;
+    }
+
+    .section__text-wrapper {
+      width: 45%;
+      width: calc( 45vw - (100vw - 100%)/2 );
+      padding-right: 8rem;
+    }
+
+    .section__title {
+      margin-top: 10rem;
+      font-size: 2rem;
+      margin-bottom: 6rem;
+    }
+
+    .section__text-content {
+      font-size: 1.8rem;
+      p {
+        font-size: 1.8rem;
+        margin-bottom: 3rem;
+      }
+    }
+
+    .btn {
+      margin-top: 10rem;
+      margin-bottom: 15rem;
+    }
+
+    .section__img-wrapper {
+      position: absolute;
+      bottom: 0;
+      margin-bottom: 7rem;
+      margin-left: 0;
+      margin-right: 0;
+      // margin-top: -5rem;
+      // transform: translateY(-50%);
+      right: 0;
+      width: 55%;
+      max-height: 80vh;
+      max-height: calc(100vh - 20rem);
+      &:before {
+        padding-top: 80%;
+        padding-top: Min(80%, 80vh);
+        padding-top: Min(80%, calc(100vh - 20rem));
+      }
+
+      .decor {
+        font-size: 18rem;
+        margin-bottom: -4rem;
+      }
+    }
+
+  .footer {
+    font-size: 1.2rem;
   }
+  } 
+  /* ----- END section--for-whom----- */
 }
-/* ----- END important-info----- */
-} 

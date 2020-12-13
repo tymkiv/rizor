@@ -1571,6 +1571,37 @@ button:focus {
   }
 }
 
+.btn {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border: 1px solid #fff;
+  border-radius: 5rem;
+  background-color: #fff;
+  padding: 2rem 4.5rem 1.8rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: #3a30f8;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+}
+
+.btn:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 5rem;
+  -webkit-box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.3);
+}
+
 @keyframes decor {
   0% {
     border-radius: 50%/50% 50%;
