@@ -292,16 +292,10 @@
 .play-btn__border svg path {
   stroke-dasharray: 200;
   stroke-dashoffset: -200;
-  -webkit-transition: 2s ease-in-out;
-  -o-transition: 2s ease-in-out;
-  transition: 2s ease-in-out;
 }
 
 .play-btn__border svg circle {
   opacity: 0;
-  -webkit-transition: 0.3s ease-in-out;
-  -o-transition: 0.3s ease-in-out;
-  transition: 0.3s ease-in-out;
 }
 
 .play-btn__border svg path {
